@@ -1,2 +1,2 @@
-# tdk
-Test development kit for Salesforce test automation 
+# TestBlazer
+Test automation framework for Salesforce 
