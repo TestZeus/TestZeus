@@ -10,7 +10,9 @@ Open source Ui automation framework for Salesforce
     OR
     Option 2- Perform a maven build with (clean install test) goals on the pom.xml
    
-    
+ ## PowerLocator Strategy:   
+![PowerLocators](https://user-images.githubusercontent.com/7482112/135152007-1a950dd6-2368-4138-a527-f40d698ce7b5.jpg)
+
 
   
 
