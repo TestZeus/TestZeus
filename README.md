@@ -88,6 +88,4 @@ Restrict the usage of **Thread.sleep()** as it adds non-deterministic nature to 
 
 Test specific test data should be setup on the Test Class and generic data should be configured in the config.json file.
 
-All locators(CSS/XPATH) should be hand crafted with robustness in mind.
-
 Complete Java Style Guide can be found here: https://google.github.io/styleguide/javaguide.html
