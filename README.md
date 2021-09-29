@@ -1,25 +1,23 @@
-# TestZeus
-Open source Ui automation framework for Salesforce
+# TestZeus ⚡
+World's first Open source Ui automation framework built specifically for Salesforce
 
 
 
-
-
-## Pre-requisites:
+## Pre-requisites 🔗:
   JAVA, Maven, TestNG, ChromeDriver on the local
   
- ## Instructions to run:
+ ## Instructions to run🏃‍♂️:
     Option 1 - Both the UI and API test can be run as standalone TESTNG tests
     OR
     Option 2- Perform a maven build with (clean install test) goals on the pom.xml
    
- ## PowerLocator Strategy:   
+ ## PowerLocator Strategy 🤖:   
 ![PowerLocators](https://user-images.githubusercontent.com/7482112/135152007-1a950dd6-2368-4138-a527-f40d698ce7b5.jpg)
 
 
   
 
-## Creating UI Test cases:
+## Creating UI Test cases ✒:
 As easy as 1-2-3:
  1. Add the Page object class for which the flow has to be modeled
  2. The class variable for the same needs to be added to the BaseTest class for instantiation
@@ -36,14 +34,14 @@ BaseTest class also triggers the below 2 things:
 Wrapper methods for abstracting the webdriver internals are written in the **PageBase** class.
 
   
-## Debug tests:
+## Debug tests 🐜:
   Detailed option: Run as -Dtest=SmokeTest -Dmaven.surefire.debug test
   And then: 
   Debug config->set up 5005 port and then continue debugging
 
 Quick Option: As always, adding break points and debug as TestNG test
 
-## Coding Standards:
+## Coding Standards 👨‍💻:
 Coding Standards for Components: It is recommended to write components name by its purpose. This approach improves the readability and maintainability of code.
 Coding Standards for Classes: Usually class name should be noun starting with uppercase letter. If it contains multiple word than every inner word should start with uppercase.
 Eg: String, StringBuffer, Dog
