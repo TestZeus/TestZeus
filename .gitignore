@@ -1,3 +1,10 @@
+.settings/
+target/
+*/target/*
+*/target/**
+/bin/
+/test-output
+
 # Compiled class file
 *.class
 
@@ -13,7 +20,6 @@
 # Package Files #
 *.jar
 *.war
-*.nar
 *.ear
 *.zip
 *.tar.gz

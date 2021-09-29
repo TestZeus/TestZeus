@@ -1,0 +1,11 @@
+{
+	"environments": {
+		"Salesforce_Lightening": {
+			"AutomationSandbox": {
+				"Data1": "TestData",
+				"homePage": "www.google.com"
+				
+			}
+		}
+	}
+}
