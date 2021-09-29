@@ -2,6 +2,9 @@
 Open source Ui automation framework for Salesforce
 
 
+
+
+
 ## Pre-requisites:
   JAVA, Maven, TestNG, ChromeDriver on the local
   
@@ -89,3 +92,8 @@ Restrict the usage of **Thread.sleep()** as it adds non-deterministic nature to 
 Test specific test data should be setup on the Test Class and generic data should be configured in the config.json file.
 
 Complete Java Style Guide can be found here: https://google.github.io/styleguide/javaguide.html
+
+Made with ♥ in India.
+
+![testzeus (1)](https://user-images.githubusercontent.com/7482112/135205529-420c503f-ad4e-4a42-81b8-5604a7514add.jpg)
+
