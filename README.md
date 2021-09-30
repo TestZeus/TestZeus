@@ -1,6 +1,9 @@
 # TestZeus ⚡
 World's first Open source Ui automation framework built specifically for Salesforce
 
+## High Level Framework diagram 🏛:
+
+![Frameworkdiagram](https://user-images.githubusercontent.com/7482112/135495035-56203a56-bea0-4683-afa5-390aab8ea3cc.png)
 
 
 ## Pre-requisites 🔗:
