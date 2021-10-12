@@ -1,5 +1,7 @@
 package com.AT.base.forceObject.TextArea;
 
+import com.AT.base.BaseActions;
+import com.AT.base.PageBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -29,12 +31,12 @@ public class TextArea extends BaseActions implements ForceObject {
 	}
 
 	private WebElement getWebElement() {
-		List<WebElement> divs = webelementsWithoutVisibility(By.cssSelector("div[class *='" + domDataType + "']"));
+		List<WebElement> divs = webelements(By.cssSelector("div[class *='" + domDataType + "']"));
 		int size = divs.size();
 		for (int i = 0; i < size; i++) {
-			divs = webelementsWithoutVisibility(By.cssSelector("div[class *='" + domDataType + "']"));
+			divs = webelements(By.cssSelector("div[class *='" + domDataType + "']"));
 			WebElement div = divs.get(i);
-			String spanText = webelementWithoutVisibility(div, By.cssSelector("span")).getText();
+			String spanText = webelement(div, By.cssSelector("span")).getText();
 			if (spanText.equalsIgnoreCase(fieldName))
 				return webelement(div, By.cssSelector("textarea"));
 		}

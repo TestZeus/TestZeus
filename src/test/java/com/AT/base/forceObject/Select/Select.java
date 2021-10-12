@@ -3,6 +3,7 @@ package com.AT.base.forceObject.Select;
 import java.util.List;
 import java.util.Map;
 
+import com.AT.base.BaseActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,12 +34,12 @@ public class Select extends BaseActions implements ForceObject {
 	private void select(String value) {
 		System.out.println("Trying to select value : " + value + " for field : " + fieldName);
 		boolean found = false;
-		List<WebElement> divs = webelementsWithoutVisibility(By.cssSelector("div[class *='" + domDataType + "']"));
+		List<WebElement> divs = webelements(By.cssSelector("div[class *='" + domDataType + "']"));
 		for (WebElement div : divs) {
-			String spanText = webelementWithoutVisibility(div, By.cssSelector("span")).getText().replace('*', ' ')
+			String spanText = webelement(div, By.cssSelector("span")).getText().replace('*', ' ')
 					.trim();
 			if (spanText.equalsIgnoreCase(fieldName)) {
-				click(webelementWithoutVisibility(div, By.cssSelector("a")));
+				click(webelement(div, By.cssSelector("a")));
 				break;
 			}
 		}
