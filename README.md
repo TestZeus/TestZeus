@@ -3,7 +3,8 @@ World's first Open source Ui automation framework built specifically for Salesfo
 
 ## High Level Framework diagram 🏛:
 
-![Frameworkdiagram](https://user-images.githubusercontent.com/7482112/135495035-56203a56-bea0-4683-afa5-390aab8ea3cc.png)
+
+![TestZeusArchitecture](https://user-images.githubusercontent.com/7482112/137503566-2fae7c6f-e4e1-4f31-b18d-426e2c91d578.jpg)
 
 
 ## Pre-requisites 🔗:
