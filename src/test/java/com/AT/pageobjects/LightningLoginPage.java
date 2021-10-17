@@ -11,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.AT.base.PageBase;
+import com.AT.base.forceObject.SFField;
+import com.AT.base.forceObject.TextArea.TextArea;
 
 public class LightningLoginPage extends PageBase {
 
@@ -43,6 +45,12 @@ public class LightningLoginPage extends PageBase {
 	public void login(String userid, String passwordtext) throws InterruptedException {
 
 		Thread.sleep(5000);
+
+		SFField field = new SFField();
+		field.setLabel("Account Name");
+		TextArea ta = new TextArea(field, driver);
+
+		System.out.println(ta);
 
 		try {
 

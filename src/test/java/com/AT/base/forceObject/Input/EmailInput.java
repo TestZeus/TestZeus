@@ -3,8 +3,7 @@ package com.AT.base.forceObject.Input;
 import org.openqa.selenium.WebDriver;
 
 import com.AT.base.forceObject.SFField;
-
-import com.AT.base.locators.Locators_Get;
+import com.AT.base.forceObject.Locators.Locators_Get;
 
 public class EmailInput extends Input {
 

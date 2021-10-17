@@ -5,8 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.AT.base.forceObject.SFField;
-
-import com.AT.base.locators.Locators_Get;
+import com.AT.base.forceObject.Locators.Locators_Get;
 
 public class ReferenceInput extends Input {
 
@@ -15,7 +14,7 @@ public class ReferenceInput extends Input {
 	}
 
 	@Override
-	public void set(String value) {
+	public void set(String value) throws InterruptedException {
 		WebElement referenceInput = getWebElement();
 		referenceInput.sendKeys(value);
 		hardwait(1);

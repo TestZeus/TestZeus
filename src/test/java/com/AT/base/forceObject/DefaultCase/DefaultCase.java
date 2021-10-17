@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import com.AT.base.forceObject.ForceObject;
 import com.AT.base.forceObject.SFField;
 
-import com.AT.base.locators.Locators_Get;
-import com.AT.base.utils.BaseActions;
+import com.AT.base.forceObject.Locators.Locators_Get;
+import com.AT.base.BaseActions;
 
 public class DefaultCase extends BaseActions implements ForceObject {
 	protected String span;

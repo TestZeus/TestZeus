@@ -7,12 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import com.AT.base.BaseActions;
+import com.AT.base.DataFields;
 import com.AT.base.forceObject.ForceObject;
 import com.AT.base.forceObject.SFField;
-
-import com.AT.base.DataFields;
-import com.AT.base.locators.Locators_Get;
-import com.AT.base.utils.BaseActions;
+import com.AT.base.forceObject.Locators.Locators_Get;
 
 public class Input extends BaseActions implements ForceObject {
 	protected String fieldName, domDataType;
@@ -43,7 +42,8 @@ public class Input extends BaseActions implements ForceObject {
 		return null;
 	}
 
-	public void set(String value) {
+	@Override
+	public void set(String value) throws InterruptedException {
 		getWebElement().clear();
 		getWebElement().sendKeys(value);
 	}
@@ -52,10 +52,12 @@ public class Input extends BaseActions implements ForceObject {
 		getWebElement().clear();
 	}
 
+	@Override
 	public String get() {
 		return webelement(Locators_Get.getFormDetailsUI, fieldName).getText();
 	}
 
+	@Override
 	public String edit_get() {
 		return getWebElement().getAttribute("value");
 	}

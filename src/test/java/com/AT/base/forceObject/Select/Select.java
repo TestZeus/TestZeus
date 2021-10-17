@@ -3,19 +3,17 @@ package com.AT.base.forceObject.Select;
 import java.util.List;
 import java.util.Map;
 
-import com.AT.base.BaseActions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import com.AT.base.BaseActions;
+import com.AT.base.DataFields;
 import com.AT.base.forceObject.ForceObject;
 import com.AT.base.forceObject.SFField;
+import com.AT.base.forceObject.Locators.Locators_Get;
 import com.AT.base.sfData.objectDescribe.describeLayoutPOJO.PicklistValue;
-
-import com.AT.base.DataFields;
-import com.AT.base.locators.Locators_Get;
-import com.AT.base.utils.BaseActions;
 
 public class Select extends BaseActions implements ForceObject {
 	private String fieldName, domDataType;
@@ -31,15 +29,14 @@ public class Select extends BaseActions implements ForceObject {
 		domDataType = dataTypes.get(field.getDetails().getType());
 	}
 
-	private void select(String value) {
+	private void select(String value) throws InterruptedException {
 		System.out.println("Trying to select value : " + value + " for field : " + fieldName);
 		boolean found = false;
 		List<WebElement> divs = webelements(By.cssSelector("div[class *='" + domDataType + "']"));
 		for (WebElement div : divs) {
-			String spanText = webelement(div, By.cssSelector("span")).getText().replace('*', ' ')
-					.trim();
+			String spanText = webelement(div, By.cssSelector("span")).getText().replace('*', ' ').trim();
 			if (spanText.equalsIgnoreCase(fieldName)) {
-				click(webelement(div, By.cssSelector("a")));
+				safeClick(webelement(div, By.cssSelector("a")));
 				break;
 			}
 		}
@@ -68,8 +65,14 @@ public class Select extends BaseActions implements ForceObject {
 		}
 	}
 
+	@Override
 	public void set(String value) {
-		select(value);
+		try {
+			select(value);
+		} catch (InterruptedException e) {
+			System.out.println("Exception with setting SELECT value");
+			e.printStackTrace();
+		}
 	}
 
 	public void clear() {
@@ -81,6 +84,7 @@ public class Select extends BaseActions implements ForceObject {
 		return webelement(Locators_Get.getFormDetailsUI, fieldName).getText();
 	}
 
+	@Override
 	public String edit_get() {
 		List<WebElement> divs = webelementsWithoutVisibility(By.cssSelector("div[class *='" + domDataType + "']"));
 		for (WebElement div : divs) {
