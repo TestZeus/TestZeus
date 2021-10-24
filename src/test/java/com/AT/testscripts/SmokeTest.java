@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import com.AT.base.BaseTest;
 import com.AT.base.HTTPClientWrapper;
+import com.jayway.jsonpath.JsonPath;
 
 /**
  * @author Robin
@@ -18,21 +19,29 @@ public class SmokeTest extends BaseTest {
 	@Test(priority = 1)
 	public void LoginAndFetch() throws Exception {
 //
-		lightningloginpage.openHomepage(SFBaseURL);
-		lightningloginpage.login(SFUserId, SFPassword);
 
 		// The data from this API call can be observed in the Emailable report under
 		// Surefire reports folder
 //		Reporter.log((HTTPClientWrapper.runGetRequest("/ui-api/record-ui/0015g00000S9lfUAAR")).toString());
 
 		// For getting the base layouts
-		System.out.println(HTTPClientWrapper.runGetRequest("/sobjects/Account/describe/layouts/"));
+		// System.out.println(HTTPClientWrapper.runGetRequest("/sobjects/Account/describe/layouts/"));
 
 		// For getting the actions
 		// System.out.println(HTTPClientWrapper.runGetRequest("/ui-api/actions/record/5006f00001fC2rmAAC"));
 
 		// For getting 9 dot icon URLs :
-//		System.out.println(HTTPClientWrapper.runGetRequest("/ui-api/apps?formFactor=Large"));
+		String leadURLjson = HTTPClientWrapper.runGetRequest("/ui-api/apps?formFactor=Large").toString();
+
+		String leadURLmalformed = JsonPath.read(leadURLjson, "$.apps..[?(@.objectLabelPlural=='Leads')].content")
+				.toString();
+
+		String leadURL = leadURLmalformed.replace("\\/", "/");
+
+//		lightningloginpage.openHomepage(SFBaseURL);
+//		lightningloginpage.login(SFUserId, SFPassword);
+
+		driver.navigate().to(leadURL);
 
 	}
 
