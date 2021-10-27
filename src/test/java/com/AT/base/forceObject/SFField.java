@@ -1,8 +1,22 @@
 package com.AT.base.forceObject;
 
+import java.util.List;
+
 import com.AT.base.sfData.objectDescribe.describeLayoutPOJO.Details;
+import com.AT.base.sfData.objectDescribe.describeLayoutPOJO.Layout;
+import com.AT.base.sfData.objectDescribe.describeLayoutPOJO.RecordTypeMapping;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({ "layouts", "recordTypeMappings", "recordTypeSelectorRequired" })
 
 public class SFField {
+	private List<Layout> layouts;
+	private List<RecordTypeMapping> recordTypeMappings;
+	private List<Boolean> recordTypeSelectorRequired;
+
 	public void setLabel(String label) {
 		this.label = label;
 	}
@@ -81,6 +95,36 @@ public class SFField {
 
 	public Details getDetails() {
 		return details;
+	}
+
+	@JsonProperty("layouts")
+	public List<Layout> getLayouts() {
+		return layouts;
+	}
+
+	@JsonProperty("layouts")
+	public void setLayouts(List<Layout> layouts) {
+		this.layouts = layouts;
+	}
+
+	@JsonProperty("recordTypeMappings")
+	public List<RecordTypeMapping> getRecordTypeMappings() {
+		return recordTypeMappings;
+	}
+
+	@JsonProperty("recordTypeMappings")
+	public void setRecordTypeMappings(List<RecordTypeMapping> recordTypeMappings) {
+		this.recordTypeMappings = recordTypeMappings;
+	}
+
+	@JsonProperty("recordTypeSelectorRequired")
+	public List<Boolean> getRecordTypeSelectorRequired() {
+		return recordTypeSelectorRequired;
+	}
+
+	@JsonProperty("recordTypeSelectorRequired")
+	public void setRecordTypeSelectorRequired(List<Boolean> recordTypeSelectorRequired) {
+		this.recordTypeSelectorRequired = recordTypeSelectorRequired;
 	}
 
 	public void setFieldsData(String inFieldSet, String label, Boolean editableForNew, Boolean editableForUpdate,

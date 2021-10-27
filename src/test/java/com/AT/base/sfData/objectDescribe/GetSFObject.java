@@ -18,7 +18,9 @@ public class GetSFObject extends BaseTest {
 //		return getRequest.getResponseWithOauth(endpoint).getBody().asString();
 
 		// Newer method to run Get Api request
-		return HTTPClientWrapper.runGetRequest(endpoint).toString();
+		String getDescribeLayout = HTTPClientWrapper.runGetRequest(endpoint).toString();
+		System.out.println("API Responmse is ------" + getDescribeLayout);
+		return getDescribeLayout;
 	}
 
 // SalesForce VisualForce
@@ -37,6 +39,7 @@ public class GetSFObject extends BaseTest {
 //		String res1 = lead.getLayouts().get(0).getEditLayoutSections().get(0).getHeading();
 		String quickAction = lead.getLayouts().get(0).getQuickActionList().getQuickActionListItems().get(2).getLabel()
 				.toString();
+		System.out.println("11111" + quickAction);
 		String quickActionURL = lead.getLayouts().get(0).getQuickActionList().getQuickActionListItems().get(2).getUrls()
 				.getDescribe();
 		System.out.println(quickAction + "---" + quickActionURL);

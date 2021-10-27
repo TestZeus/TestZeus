@@ -31,17 +31,17 @@ public class SmokeTest extends BaseTest {
 		// System.out.println(HTTPClientWrapper.runGetRequest("/ui-api/actions/record/5006f00001fC2rmAAC"));
 
 		// For getting 9 dot icon URLs :
-		String leadURLjson = HTTPClientWrapper.runGetRequest("/ui-api/apps?formFactor=Large").toString();
+		String accountURLjson = HTTPClientWrapper.runGetRequest("/ui-api/apps?formFactor=Large").toString();
 
-		String leadURLmalformed = JsonPath.read(leadURLjson, "$.apps..[?(@.objectLabelPlural=='Leads')].content")
+		String accountsURLmalformed = JsonPath.read(accountURLjson, "$.apps..[?(@.objectApiName=='Report')].content")
 				.toString();
 
-		String leadURL = leadURLmalformed.replace("\\/", "/");
+		String accountsURL = accountsURLmalformed.replace("\\/", "/");
 
 //		lightningloginpage.openHomepage(SFBaseURL);
 //		lightningloginpage.login(SFUserId, SFPassword);
 
-		driver.navigate().to(leadURL);
+		driver.navigate().to(accountsURL);
 
 	}
 

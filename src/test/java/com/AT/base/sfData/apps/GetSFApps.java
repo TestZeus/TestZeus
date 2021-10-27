@@ -1,17 +1,18 @@
 package com.AT.base.sfData.apps;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
+import com.AT.base.BaseTest;
 import com.AT.base.HTTPClientWrapper;
 import com.AT.base.sfData.BaseSFData;
 import com.AT.base.sfData.apps.describeAppsPOJO.Apps;
 
-public class GetSFApps {
+public class GetSFApps extends BaseTest {
 	Apps apps = new Apps();
 	BaseSFData jsonMap = new BaseSFData();
 
 	private String getAppsData() {
-		String endpoint = "ui-api/apps?formFactor=Large";
+		String endpoint = "/ui-api/apps?formFactor=Large";
 		// Older method to run Get API request
 
 //		GetRequest getRequest = new GetRequest();
@@ -30,6 +31,7 @@ public class GetSFApps {
 	public void checkAppData() {
 		GetSFApps getSfApps = new GetSFApps();
 		Apps apps = getSfApps.get();
-		System.out.println(apps.getApps().get(1).getLabel());
+
+		System.out.println(apps.getApps().get(10).getLabel());
 	}
 }

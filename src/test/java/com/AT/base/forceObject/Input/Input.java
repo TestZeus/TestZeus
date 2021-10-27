@@ -12,6 +12,8 @@ import com.AT.base.DataFields;
 import com.AT.base.forceObject.ForceObject;
 import com.AT.base.forceObject.SFField;
 import com.AT.base.forceObject.Locators.Locators_Get;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 public class Input extends BaseActions implements ForceObject {
 	protected String fieldName, domDataType;
@@ -19,12 +21,15 @@ public class Input extends BaseActions implements ForceObject {
 	protected static Map<String, String> dataTypes = DataFields.fields();
 	protected String span;
 
-	public Input(SFField field, WebDriver driver) {
+	public Input(SFField field, WebDriver driver) throws JsonMappingException, JsonProcessingException {
 		super(driver);
 		this.driver = driver;
 		details = field;
+		System.out.println(details);
 		fieldName = field.getLabel();
-		domDataType = dataTypes.get(field.getDetails().getType());
+		domDataType = dataTypes.get(
+				field.getLayouts().get(0).getQuickActionList().getQuickActionListItems().get(2).getLabel().toString());
+
 	}
 
 	protected WebElement getWebElement() {

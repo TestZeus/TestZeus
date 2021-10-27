@@ -1,5 +1,6 @@
 package com.AT.pageobjects;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.Alert;
@@ -11,8 +12,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.AT.base.PageBase;
-import com.AT.base.forceObject.SFField;
-import com.AT.base.forceObject.TextArea.TextArea;
 
 public class LightningLoginPage extends PageBase {
 
@@ -41,16 +40,26 @@ public class LightningLoginPage extends PageBase {
 	 * @author Robin 28-9-2021
 	 * @return the SF Lightning page class instance.
 	 * @throws InterruptedException
+	 * @throws IOException
 	 */
-	public void login(String userid, String passwordtext) throws InterruptedException {
+	public void login(String userid, String passwordtext) throws InterruptedException, IOException {
 
-		Thread.sleep(5000);
+//		Thread.sleep(5000);
+//
+//		SFField field = new SFField();
+//		field.setLabel("Account Name");
+//		TextArea ta = new TextArea(field, driver);
+//
+//		System.out.println(ta);
 
-		SFField field = new SFField();
-		field.setLabel("Account Name");
-		TextArea ta = new TextArea(field, driver);
-
-		System.out.println(ta);
+//		ObjectMapper mapper = new ObjectMapper();
+//		SFField field = null;
+//
+//		field = mapper.readValue((GetSFObject.getDescribeLayout("Lead")), SFField.class);
+//		field.setLabel("Phone");
+//		System.out.println("Field label -------" + field.getLabel());
+//		Input omnisearch = new Input(field, driver);
+//		System.out.println(omnisearch.get());
 
 		try {
 
@@ -63,7 +72,7 @@ public class LightningLoginPage extends PageBase {
 
 		}
 
-		explicitWait(username, 40);
+		explicitWait(username, 5);
 
 		username.sendKeys(userid);
 		password.sendKeys(passwordtext);

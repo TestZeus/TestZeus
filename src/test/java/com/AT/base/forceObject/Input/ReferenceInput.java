@@ -6,10 +6,12 @@ import org.openqa.selenium.WebElement;
 
 import com.AT.base.forceObject.SFField;
 import com.AT.base.forceObject.Locators.Locators_Get;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 public class ReferenceInput extends Input {
 
-	public ReferenceInput(SFField field, WebDriver driver) {
+	public ReferenceInput(SFField field, WebDriver driver) throws JsonMappingException, JsonProcessingException {
 		super(field, driver);
 	}
 
