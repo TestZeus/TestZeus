@@ -987,4 +987,8 @@ public class PageBase { // This file contains common framework level methods for
 		}
 	}
 
+	public void hardwait(int timeinsec) throws InterruptedException {
+		Thread.sleep(timeinsec * 1000);
+	}
+
 }

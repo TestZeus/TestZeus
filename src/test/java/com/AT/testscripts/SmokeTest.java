@@ -17,22 +17,24 @@ public class SmokeTest extends BaseTest {
 
 	@Test(priority = 1)
 	public void LoginAndFetch() throws Exception {
-//
-//		lightningloginpage.openHomepage(SFBaseURL);
-//		lightningloginpage.login(SFUserId, SFPassword);
 
-		// The data from this API call can be observed in the Emailable report under
+		// Navigation to login page
+		lightningloginpage.openHomepage(SFBaseURL);
+		// Submitting user id, password and logging in
+		lightningloginpage.login(SFUserId, SFPassword);
+		// Navigating directly to Account app
+		String accountappurl = getURL("Account");
+		driver.get(accountappurl);
+
+		Reporter.log((HTTPClientWrapper.runGetRequest("/ui-api/record-ui/0015g00000S9lfUAAR")).toString());
+//The data from above API call can be observed in the Emailable report under
 		// Surefire reports folder
-//		Reporter.log((HTTPClientWrapper.runGetRequest("/ui-api/record-ui/0015g00000S9lfUAAR")).toString());
 
-		// For getting the base layouts
+		// Sample API call For getting the base layouts
 		System.out.println(HTTPClientWrapper.runGetRequest("/sobjects/Account/describe/layouts/"));
 
-		// For getting the actions
-		// System.out.println(HTTPClientWrapper.runGetRequest("/ui-api/actions/record/5006f00001fC2rmAAC"));
-
-		// For getting 9 dot icon URLs :
-//		System.out.println(HTTPClientWrapper.runGetRequest("/ui-api/apps?formFactor=Large"));
+		// Sample API call For getting the actions
+		System.out.println(HTTPClientWrapper.runGetRequest("/ui-api/actions/record/5006f00001fC2rmAAC"));
 
 	}
 
