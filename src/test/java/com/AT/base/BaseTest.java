@@ -29,6 +29,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import com.AT.base.sfData.apps.GetSFApps;
 import com.AT.pageobjects.LightningLoginPage;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -292,6 +293,13 @@ public class BaseTest implements ExcelReader, PropertyReader {
 	@Override
 	public void excelValueWriter(int row, int column, String value) {
 		// TODO Auto-generated method stub
+
+	}
+
+	public String getURL(String appname) { // Method to get SF Apps URL and simulate 9 dot navigation
+		GetSFApps getSfApps = new GetSFApps();
+
+		return getSfApps.getAppNavURL(appname);
 
 	}
 
