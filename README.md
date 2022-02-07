@@ -3,10 +3,11 @@ World's first Open source Ui automation framework built specifically for Salesfo
 
 ## High Level Framework diagram 🏛:
 
+![TestZeusArchitecture](https://user-images.githubusercontent.com/7482112/152764646-c01dc6b1-9097-43d1-a325-32b74792c2c8.png)
 
-![TestZeusArchitecture](https://user-images.githubusercontent.com/7482112/137503566-2fae7c6f-e4e1-4f31-b18d-426e2c91d578.jpg)
 
-CodeSee map here: https://app.codesee.io/maps/1591f900-3b3b-11ec-b3cc-0f4536fa4b40
+
+
 ## Pre-requisites 🔗:
   JAVA, Maven, TestNG, ChromeDriver on the local
   
@@ -15,9 +16,9 @@ CodeSee map here: https://app.codesee.io/maps/1591f900-3b3b-11ec-b3cc-0f4536fa4b
     OR
     Option 2- Perform a maven build with (clean install test) goals on the pom.xml
    
- ## PowerLocator Strategy 🤖:   
-![PowerLocators](https://user-images.githubusercontent.com/7482112/135152007-1a950dd6-2368-4138-a527-f40d698ce7b5.jpg)
+ ## AutoLocator Strategy 🤖:   
 
+![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152764667-5629f842-3890-4683-8ab2-48bba7dc0a88.png)
 
   
 
