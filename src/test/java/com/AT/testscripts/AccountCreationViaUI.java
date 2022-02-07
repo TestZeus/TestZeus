@@ -42,7 +42,7 @@ public class AccountCreationViaUI extends BaseTest {
 
 	}
 
-	@Test(priority = 2, dependsOnMethods = { "LoginAndFetch" }, groups = { "smokeTest" })
+	@Test(priority = 2, dependsOnMethods = { "createAccount" }, groups = { "smokeTest" })
 	public void verifyMeta() {
 		// From the same UI API data we can even verify that whether few fields are
 		// mandatory or not
