@@ -7,12 +7,12 @@
 
 			"UAT": 
 			{
-				"userId": "test10zeus@gmail.com",
+				"userId": "yourSalesforceUserID",
 				"homePage": "https://testzeus2-dev-ed.my.salesforce.com",
-				"passwd": "January@2022",
-				"SFAPICLIENTID_UAT": "3MVG9fe4g9fhX0E7pQ9efQQXuBONdodMmwOQwJF2vgraPoJlCIUU5KZk9JhzgoGwqzsrUiZ5uUzElnumuxVeu",
-				"SFAPICLIENTSECRET_UAT": "BD6663F16036846DE59E766531B388FCD8A8839DDC1F7E842F1E17C892A43960",
-				"apitoken": "2FKcHvE7aIsZHuTIXHpYu5JB"
+				"passwd": "YourPassword",
+				"SFAPICLIENTID_UAT": "YourClientIDfortheconnectedapp_foraccessingtheAPIs",
+				"SFAPICLIENTSECRET_UAT": "YourClientSecret",
+				"apitoken": "YourApiToken"
 
 			}
 			

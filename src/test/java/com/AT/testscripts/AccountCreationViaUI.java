@@ -16,7 +16,7 @@ import com.AT.base.SFPageBase;
 public class AccountCreationViaUI extends BaseTest {
 
 	@Test(priority = 1)
-	public void LoginAndFetch() throws Exception {
+	public void createAccount() throws Exception {
 
 		// Navigation to login page
 		lightningloginpage.openHomepage(SFBaseURL);
