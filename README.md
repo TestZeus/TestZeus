@@ -72,7 +72,7 @@ Zeus is the God of lightning and thunder and we want this framework to be the sa
 - Stop writing flaky locators and cryptic xpaths for Webelements on the Salesforce UI. We  source the locator values for your scripts from the Salesforce UI API , so that you can focus more on building tests and less on maintenance
 - The world of testing for Salesforce can be fast-paced and scary. That's why we are together in this mission and need your help to spread the word, try the framework or contribute to our codebase. And we have a long road ahead of us, so lets join forces to automate Salesforce
 
-Note 1: We are in no way directly or indirectly associated with Salesforce (yet). 
+Note : We are in no way directly or indirectly associated with Salesforce (yet). 
 
 Made with ♥ in India.
 
