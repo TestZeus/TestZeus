@@ -1,4 +1,4 @@
-⚡ Open source UI automation framework built specifically for Salesforce (Automagical locators) 🧙‍♂️
+# ⚡ Open source UI automation framework built specifically for Salesforce [(with Autolocators) 🧙‍♂️] (https://github.com/TestZeus/TestZeus/blob/main/README.md#autolocator-strategy-)
 
 ## High Level Framework diagram 🏛:
 
