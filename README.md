@@ -1,7 +1,18 @@
-### ⚡ Open source UI automation framework built specifically for Salesforce [with Autolocators 🧙‍♂️](https://github.com/TestZeus/TestZeus/blob/main/README.md#autolocator-strategy-)
+
+⚡Automation for Salesforce is tough (no , seriously). And every platform release brings the lightning and thunder for UI Automation tests (Winter21 caused even our tests to shiver). So we thought, what if we could find a solution to this madness and create a simple (but robust) framework for Salesforce automation tests.
+And solve the problem of flaky tests, while accelerating the development of automation tests. 
+
+Presenting (drum roll 🥁) TestZeus -> An open source automation framework built specifically for Salesforce. 
+So what ? Well, this framework has boiler plate code to get you started with test automation for your Salesforce org. 
+Just to name a few : 
+a.Advance utilities like Autolocators 🧙‍♂️ (https://github.com/TestZeus/TestZeus/blob/main/README.md#autolocator-strategy-)
+b.API integrations for REST APIs
+c.Waiting mechanism for Salesforce UI
+d.Locators for Salesforce UI
+e.Basic integrations like Email , Selenium, TESTNG, MAVEN and page objects.
 
 ## High Level Framework diagram 🏛:
-
+Here is a high level diagram for the framework. The tests can be run from maven or TestNG. 
 
 ![TestZeusArchitecture drawio](https://user-images.githubusercontent.com/7482112/152764945-5db3052b-3125-4b23-b2ee-1bab49dbc7b6.png)
 
@@ -9,7 +20,8 @@
 
 
 ## Pre-requisites 🔗:
-  JAVA, Maven, TestNG, ChromeDriver on the local
+  Technical requirements : JAVA, Maven, TestNG, ChromeDriver on the local
+  Non-technical requirements : A beverage of your choice (coffee/tea) and some good music to automate the toughest of test cases. 
   
  ## Instructions to run🏃‍♂️:
     Option 1 - Both the UI and API test can be run as standalone TESTNG tests
@@ -17,10 +29,16 @@
     Option 2- Perform a maven build with (clean install test) goals on the pom.xml
    
  ## AutoLocator Strategy 🤖:   
-
+This is where the magic happens. We scrape the UI API for labels, datatypes and sections to create the actions and locators for the UI elements on the fly. 
+Ask me how? See this now : 
 ![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png)
 
-  
+ Dont know what is UI API? 
+ No worries at all , here is a resource to get you going : https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_get_started.htm
+ 
+ And here is a nice diagram from our friends at Salesforce: 
+ 
+![uiAPiimage](https://user-images.githubusercontent.com/7482112/152789742-b0bedc53-7d6e-4565-872e-77150766b43f.png)
 
 ## Creating UI Test cases ✒:
 As easy as 1-2-3:
@@ -46,7 +64,9 @@ Wrapper methods for abstracting the webdriver internals are written in the **Pag
 
 Quick Option: As always, adding break points and debug as TestNG test
 
+Note 1: We are in no way directly or indirectly associated with Salesforce (yet). 
 
 Made with ♥ in India.
 
-![testzeus (1)](https://user-images.githubusercontent.com/7482112/135205529-420c503f-ad4e-4a42-81b8-5604a7514add.jpg)
+![testzeusanimated](https://user-images.githubusercontent.com/7482112/152790816-0cfec8dc-4021-4f25-96de-99ef93953ff7.gif)
+
