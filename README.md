@@ -3,7 +3,8 @@ World's first Open source Ui automation framework built specifically for Salesfo
 
 ## High Level Framework diagram 🏛:
 
-![TestZeusArchitecture](https://user-images.githubusercontent.com/7482112/152764646-c01dc6b1-9097-43d1-a325-32b74792c2c8.png)
+
+![TestZeusArchitecture drawio](https://user-images.githubusercontent.com/7482112/152764945-5db3052b-3125-4b23-b2ee-1bab49dbc7b6.png)
 
 
 
@@ -18,7 +19,8 @@ World's first Open source Ui automation framework built specifically for Salesfo
    
  ## AutoLocator Strategy 🤖:   
 
-![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152764667-5629f842-3890-4683-8ab2-48bba7dc0a88.png)
+
+![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png)
 
   
 
