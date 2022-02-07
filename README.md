@@ -1,4 +1,4 @@
-⚡World's first Open source Ui automation framework built specifically for Salesforce
+⚡ Open source UI automation framework built specifically for Salesforce (Automagical locators) 🧙‍♂️
 
 ## High Level Framework diagram 🏛:
 
@@ -17,8 +17,6 @@
     Option 2- Perform a maven build with (clean install test) goals on the pom.xml
    
  ## AutoLocator Strategy 🤖:   
-
-![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png)
 
 ![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png)
 
