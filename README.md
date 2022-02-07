@@ -11,6 +11,20 @@ Just to name a few :
 * d.Locators for Salesforce UI
 * e.Basic integrations like Email , Selenium, TESTNG, MAVEN and page objects.
 
+The core of the framework works on top of Salesforce's UI API to achieve UI automation.  Dont know what is UI API? 
+No worries at all , here is a resource to get you going : https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_get_started.htm
+ 
+ And here is a nice diagram from our friends at Salesforce: 
+ 
+![uiAPiimage](https://user-images.githubusercontent.com/7482112/152789742-b0bedc53-7d6e-4565-872e-77150766b43f.png)
+
+
+## AutoLocator Strategy 🤖:   
+This is where the magic happens. We parse the UI API and process the jsonresponse for labels, datatypes and sections to create the actions and locators for the UI elements on the fly. 
+Ask me how? See this now : 
+![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png)
+
+
 ## High Level Framework diagram 🏛:
 Here is a high level diagram for the framework. The tests can be run from maven or TestNG. 
 
@@ -27,18 +41,8 @@ Here is a high level diagram for the framework. The tests can be run from maven 
    - Option 1 - Both the UI and API test can be run as standalone TESTNG tests
     OR
    - Option 2- Perform a maven build with (clean install test) goals on the pom.xml
-   
-## AutoLocator Strategy 🤖:   
-This is where the magic happens. We parse the UI API and process the jsonresponse for labels, datatypes and sections to create the actions and locators for the UI elements on the fly. 
-Ask me how? See this now : 
-![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png)
 
- Dont know what is UI API? 
- No worries at all , here is a resource to get you going : https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_get_started.htm
- 
- And here is a nice diagram from our friends at Salesforce: 
- 
-![uiAPiimage](https://user-images.githubusercontent.com/7482112/152789742-b0bedc53-7d6e-4565-872e-77150766b43f.png)
+
 
 ## Creating UI Test cases ✒:
 As easy as 1-2-3:
@@ -55,6 +59,7 @@ BaseTest class also triggers the below 2 things:
  - Data setup and post execution clean up of webdriver
 
 Wrapper methods for abstracting the webdriver internals are written in the **PageBase** class.
+Methods to interact with UI API and create locators/interactions are setup in the **SFPageBase** class.
 
   
 ## Debug tests 🐜:
