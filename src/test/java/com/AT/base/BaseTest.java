@@ -14,8 +14,8 @@ import java.util.concurrent.TimeUnit;
 import javax.mail.MessagingException;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.ITestResult;
@@ -29,7 +29,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.AT.base.sfData.apps.GetSFApps;
+import com.AT.pageobjects.AccountListPage;
 import com.AT.pageobjects.LightningLoginPage;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -52,6 +52,7 @@ public class BaseTest implements ExcelReader, PropertyReader {
 
 	protected static Actions action;
 	protected LightningLoginPage lightningloginpage;
+	protected AccountListPage accountlistpage;
 
 	public static String SFBaseURL; // This is the base URL like https://test-ea.lightning.force.com/
 
@@ -175,6 +176,8 @@ public class BaseTest implements ExcelReader, PropertyReader {
 		// of the tests using Reflections concept
 
 		lightningloginpage = (LightningLoginPage) pageFactory.getPageObject(LightningLoginPage.class.getName());
+		accountlistpage = (AccountListPage) pageFactory.getPageObject(AccountListPage.class.getName());
+
 		// Below is commented code as reference for reading data from properties file
 		// SFUserId = (String) getStaticData().get("SFLightning.userid");
 		// SFPassword = (String) getStaticData().get("SFLightning.password");
@@ -298,7 +301,6 @@ public class BaseTest implements ExcelReader, PropertyReader {
 
 	public String getURL(String appname) { // Method to get SF Apps URL and simulate 9 dot navigation
 		GetSFApps getSfApps = new GetSFApps();
-
 		return getSfApps.getAppNavURL(appname);
 
 	}

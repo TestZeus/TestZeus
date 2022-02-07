@@ -43,17 +43,24 @@ public class HTTPClientWrapper {
 	// System admin or user at hand
 
 	protected static final String SFAPIUSERNAME_UAT = "test10zeus@gmail.com";
+
+	protected static final String SFAPITOKEN_UAT = PageBase.readJsonFile("config", "$..apitoken");
+
+	protected static final String SFAPIPASSWORDSTRING_UAT = PageBase.readJsonFile("config", "$..passwd");
+
 	// password needs to be appended with token as per :
 	// https://stackoverflow.com/questions/38334027/salesforce-oauth-authentication-bad-request-error
-	protected static final String SFAPIPASSWORD_UAT = "Test@1234vHW3q1gPYvSTodjMAc8IH70UE";
+
+	protected static final String SFAPIPASSWORD_UAT = SFAPIPASSWORDSTRING_UAT + SFAPITOKEN_UAT;
 
 	protected static final String SFAPILOGINURL_UAT = "https://testzeus2-dev-ed.my.salesforce.com";
 
 	protected static final String SFAPIGRANTSERVICE = "/services/oauth2/token?grant_type=password";
 	// Client id is the consumer key for the connected app
-	protected static final String SFAPICLIENTID_UAT = "3MVG9fe4g9fhX0E7pQ9efQQXuBONdodMmwOQwJF2vgraPoJlCIUU5KZk9JhzgoGwqzsrUiZ5uUzElnumuxVeu";
+	protected static final String SFAPICLIENTID_UAT = PageBase.readJsonFile("config", "$..SFAPICLIENTID_UAT");
+
 	// Client secret is the consumer secret
-	protected static final String SFAPICLIENTSECRET_UAT = "BD6663F16036846DE59E766531B388FCD8A8839DDC1F7E842F1E17C892A43960";
+	protected static final String SFAPICLIENTSECRET_UAT = PageBase.readJsonFile("config", "$..SFAPICLIENTSECRET_UAT");
 
 	protected static void SFLogin_API() {
 

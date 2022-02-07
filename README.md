@@ -18,6 +18,7 @@
    
  ## AutoLocator Strategy 🤖:   
 
+![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png)
 
 ![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png)
 
@@ -51,4 +52,3 @@ Quick Option: As always, adding break points and debug as TestNG test
 Made with ♥ in India.
 
 ![testzeus (1)](https://user-images.githubusercontent.com/7482112/135205529-420c503f-ad4e-4a42-81b8-5604a7514add.jpg)
-

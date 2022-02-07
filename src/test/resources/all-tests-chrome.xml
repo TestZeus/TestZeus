@@ -7,7 +7,7 @@
 	<test name="smoke_test" preserve-order="true">
 		<classes>
 
-			<class name="com.AT.testscripts.SmokeTest" />
+			<class name="com.AT.testscripts.AccountCreationViaUI" />
 
 		</classes>
 	</test>

@@ -12,7 +12,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.AT.base.SFPageBase;
 
-public class LightningLoginPage extends SFPageBase {
+public class PageLevelMethods extends SFPageBase {
 
 	@FindBy(id = "username")
 	@CacheLookup
@@ -29,7 +29,7 @@ public class LightningLoginPage extends SFPageBase {
 	@FindBy(xpath = "")
 	private List<WebElement> sessionErrorMessage;
 
-	public LightningLoginPage(WebDriver webDriver) {
+	public PageLevelMethods(WebDriver webDriver) {
 		super(webDriver);
 		PageFactory.initElements(driver, this);// Creates instance for all web elements
 	}
@@ -42,15 +42,8 @@ public class LightningLoginPage extends SFPageBase {
 	 */
 	public void login(String userid, String passwordtext) throws InterruptedException {
 
-		Thread.sleep(8000);
-
-		explicitWait(username, 40);
-
-		username.sendKeys(userid);
-		password.sendKeys(passwordtext);
-		safeClick(login_button);
-
 		Thread.sleep(5000);
+
 		try {
 
 			Alert alert = driver.switchTo().alert();
@@ -62,18 +55,13 @@ public class LightningLoginPage extends SFPageBase {
 
 		}
 
-		waitForSFPagetoLoad();
+		explicitWait(username, 40);
 
-	}
+		username.sendKeys(userid);
+		password.sendKeys(passwordtext);
+		safeClick(login_button);
 
-	public void applauncher(String appname) throws InterruptedException {
-		Thread.sleep(5000);
-		String accountappurl = getURL(appname);
-		System.out.println("account URL is" + accountappurl);
-		String cleanurl = accountappurl.replace("[\"", "").replace("\"]", "");
-		System.out.println("Navigating to App URL as : " + cleanurl);
-		openHomepage(cleanurl);
-
+		Thread.sleep(2000);
 		waitForSFPagetoLoad();
 
 	}
