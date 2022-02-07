@@ -23,12 +23,12 @@ Here is a high level diagram for the framework. The tests can be run from maven 
   * Technical requirements : JAVA, Maven, TestNG, ChromeDriver on the local. 
  * And Non-technical requirements : A beverage of your choice (coffee/tea) and some good music to automate the toughest of test cases. 
   
- ## Instructions to run🏃‍♂️:
+## Instructions to run🏃‍♂️:
    - Option 1 - Both the UI and API test can be run as standalone TESTNG tests
     OR
    - Option 2- Perform a maven build with (clean install test) goals on the pom.xml
    
- ## AutoLocator Strategy 🤖:   
+## AutoLocator Strategy 🤖:   
 This is where the magic happens. We scrape the UI API for labels, datatypes and sections to create the actions and locators for the UI elements on the fly. 
 Ask me how? See this now : 
 ![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png)
