@@ -4,7 +4,7 @@ And solve the problem of flaky tests, while accelerating the development of auto
 
 Presenting (drum roll 🥁) TestZeus -> An open source automation framework built specifically for Salesforce. 
 So what ? Well, this framework has boiler plate code to get you started with test automation for your Salesforce org. 
-Just to name a few : 
+And just to name a few features : 
 * a.Advance utilities like Autolocators 🧙‍♂️ (https://github.com/TestZeus/TestZeus/blob/main/README.md#autolocator-strategy-)
 * b.API integrations for REST APIs
 * c.Waiting mechanism for Salesforce UI
