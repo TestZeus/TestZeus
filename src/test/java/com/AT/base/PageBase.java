@@ -28,8 +28,8 @@ import java.util.prefs.Preferences;
 
 import javax.imageio.ImageIO;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -58,15 +58,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-public class PageBase { // This file contains common framework level methods for common interactions
-						// like click/wait and other actions on the page 🙏
+import com.jayway.jsonpath.JsonPath;
 
-	protected WebDriver driver;
+public class PageBase extends BaseTest { // This file contains common framework level methods for common interactions
+	// like click/wait and other actions on the page 🙏
+
+	protected static WebDriver driver;
 	String originalValue = null;
 	Actions actions = null;
 	protected String default_locale;
 	protected Preferences prefs = Preferences.userRoot().node(this.getClass().getName());;
-	static Logger logger = Logger.getLogger(PageBase.class);
+	static Logger logger = LogManager.getLogger(PageBase.class);
 
 	public PageBase(WebDriver driver) {
 		this.driver = driver;
@@ -635,10 +637,10 @@ public class PageBase { // This file contains common framework level methods for
 		return ret;
 	}
 
-	public static void logSetter() {
-		String log4jConfigFile = System.getProperty("user.dir") + File.separator + "log4j.properties";
-		PropertyConfigurator.configure(log4jConfigFile);
-	}
+//	public static void logSetter() {
+//		String log4jConfigFile = System.getProperty("user.dir") + File.separator + "log4j.properties";
+//		PropertyConfigurator.configure(log4jConfigFile);
+//	}
 
 	public void pageLoadWait(int time) {
 
@@ -670,54 +672,6 @@ public class PageBase { // This file contains common framework level methods for
 		LogEntries logs = driver.manage().logs().get("browser");
 
 		return logs;
-	}
-
-	public void waitForSFPagetoLoad() throws InterruptedException {
-		// Below is a custom wait method specifically built for Salesforce based on the
-		// concept of EPT
-		// https://trailhead.salesforce.com/en/content/learn/modules/lightning-experience-performance-optimization/measure-lightning-experience-performance-and-experience-page-time-ept
-		Thread.sleep(3000);
-		try {
-			WebDriverWait wait1 = new WebDriverWait(driver, 50);
-
-			ExpectedCondition<Boolean> jsLoad = new ExpectedCondition<Boolean>() {
-				@Override
-				public Boolean apply(WebDriver driver) {
-					return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString()
-							.equals("complete");
-				}
-			};
-
-			ExpectedCondition<Boolean> aurascriptLoad = new ExpectedCondition<Boolean>() {
-				@Override
-				public Boolean apply(WebDriver driver) {
-					String WAIT_FOR_AURA_SCRIPT = "return (typeof $A !== 'undefined' && $A && $A.metricsService.getCurrentPageTransaction().config.context.ept > 0)";
-					String EPT_COUNTER_SCRIPT = "return ($A.metricsService.getCurrentPageTransaction().config.context.ept)";
-					Boolean result = (Boolean) ((JavascriptExecutor) driver).executeScript((WAIT_FOR_AURA_SCRIPT));
-
-					if (result.equals(true)) {
-						System.out.println("EPT on the current page is : "
-								+ ((JavascriptExecutor) driver).executeScript(EPT_COUNTER_SCRIPT));
-						return true;
-					} else {
-						return false;
-					}
-
-				}
-			};
-			if (wait1.until(jsLoad) && wait1.until(aurascriptLoad)) {
-				System.out.println("Page load complete");
-			} else {
-				Thread.sleep(2000);
-			}
-		}
-
-		catch (Exception e) {
-			System.out.println("Exception happened in waiting for page to load , so sleeping for 5 seconds");
-			System.out.println("Exception is " + e.getMessage());
-			Thread.sleep(5000);
-
-		}
 	}
 
 	public boolean waitForJSandJQueryToLoad() {
@@ -792,7 +746,7 @@ public class PageBase { // This file contains common framework level methods for
 
 	public void browserback() throws InterruptedException {
 		driver.navigate().back();
-		waitForSFPagetoLoad();
+		implicitWait(5);
 	}
 
 	public void SFClick(WebElement we) {
@@ -989,6 +943,24 @@ public class PageBase { // This file contains common framework level methods for
 
 	public void hardwait(int timeinsec) throws InterruptedException {
 		Thread.sleep(timeinsec * 1000);
+	}
+
+	public static String readJsonFile(String jsonfilename, String path_key) {
+		{ // Here the commonly used Test data is read from the json file under src > main
+			// > resources folder
+
+			try {
+
+				String sPath = new java.io.File(".").getCanonicalPath();
+				File jsonFile = new File(sPath + File.separator + "src" + File.separator + "main" + File.separator
+						+ "resources" + File.separator + jsonfilename + ".json");
+				return JsonPath.read(jsonFile, path_key).toString().replace("[\"", "").replace("\"]", "");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return null;
+		}
+
 	}
 
 }

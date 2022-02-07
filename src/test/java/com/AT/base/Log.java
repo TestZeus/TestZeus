@@ -1,22 +1,22 @@
 package com.AT.base;
 
-import java.io.File;
-
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Reporter;
 
 public class Log {
 
+	// Reference code from
+	// https://howtodoinjava.com/log4j2/log4j2-properties-example/
+
+	private static final Logger LOGGER = LogManager.getLogger(Log.class.getName());
+
 	// Initialize Log4j logs
 
-	public Log() {
-
-		PropertyConfigurator.configure(System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
-				+ File.separator + "resources" + File.separator + "log4j.properties");
-	}
-
-	private static Logger Log = Logger.getLogger(Log.class.getName());//
+//		public Log() {
+	//
+//			PropertyConfigurator.configure(System.getProperty("user.dir") + File.separator + "src" + File.separator + "test"
+//					+ File.separator + "resources" + File.separator + "log4j.properties");
 
 	// This is to print log for the beginning of the test case, as we usually
 	// run so many test cases as a test suite
@@ -25,36 +25,36 @@ public class Log {
 
 	public static void info(String message) {
 
-		Log.info(message);
+		LOGGER.info(message);
 
 	}
 
 	public static void warn(String message) {
 
-		Log.warn(message);
+		LOGGER.warn(message);
 
 	}
 
 	public static void error(String message) {
 
-		Log.error(message);
+		LOGGER.error(message);
 
 	}
 
 	public static void fatal(String message) {
 
-		Log.fatal(message);
+		LOGGER.fatal(message);
 
 	}
 
 	public static void debug(String message) {
 
-		Log.debug(message);
+		LOGGER.debug(message);
 
 	}
 
 	public static void reportLine(String message) {
-		Log.info(message);
+		LOGGER.info(message);
 		Reporter.log(message + " <br/>", true);
 	}
 

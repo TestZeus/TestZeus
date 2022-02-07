@@ -5,6 +5,9 @@ target/
 /bin/
 /test-output
 
+# Passwords and other data stored in .json file
+*/resources/config.json
+
 # Compiled class file
 *.class
 

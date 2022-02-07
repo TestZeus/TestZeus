@@ -1,30 +1,13 @@
-package com.AT.base.sfData.apps;
+package com.AT.base;
 
-import org.junit.Test;
-
-import com.AT.base.HTTPClientWrapper;
-import com.AT.base.sfData.BaseSFData;
-import com.AT.base.sfData.apps.describeAppsPOJO.Apps;
 import com.jayway.jsonpath.JsonPath;
 
 public class GetSFApps {
-	Apps apps = new Apps();
-	BaseSFData jsonMap = new BaseSFData();
 
-	private String getAppsData() {
-		String endpoint = "ui-api/apps?formFactor=Large";
-		// Older method to run Get API request
-
-//		GetRequest getRequest = new GetRequest();
-//		return getRequest.getResponseWithOauth(endpoint).getBody().asString();
-
+	public String getAppsData() {
+		String endpoint = "/ui-api/apps?formFactor=Large";
 		// Newer method to run Get Api request
 		return HTTPClientWrapper.runGetRequest(endpoint).toString();
-	}
-
-	public Apps get() {
-		apps = jsonMap.getDescriptionInstance(getAppsData(), Apps.class);
-		return apps;
 	}
 
 	public String getAppNavURL(String objectname) {
@@ -34,6 +17,7 @@ public class GetSFApps {
 		// this will be updated in a future release
 
 		String objurljson = HTTPClientWrapper.runGetRequest("/ui-api/apps?formFactor=Large").toString();
+		System.out.println("Response from UI API for 9 dot icons" + objurljson);
 		String jsonpath = "$.apps..[?(@.objectApiName=='" + objectname + "')].content";
 
 		String objurl_malformed = JsonPath.read(objurljson, jsonpath).toString();
@@ -43,10 +27,4 @@ public class GetSFApps {
 
 	}
 
-	@Test
-	public void checkAppData() {
-		GetSFApps getSfApps = new GetSFApps();
-		Apps apps = getSfApps.get();
-		System.out.println(apps.getApps().get(1).getLabel());
-	}
 }
