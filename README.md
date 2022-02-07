@@ -7,8 +7,8 @@ So what ? Well, this framework has boiler plate code to get you started with tes
 And just to name a few features : 
 * a.Advance utilities like Autolocators 🧙‍♂️ (https://github.com/TestZeus/TestZeus/blob/main/README.md#autolocator-strategy-)
 * b.API integrations for REST APIs
-* c.Waiting mechanism for Salesforce UI
-* d.Locators for Salesforce UI
+* c.Waiting mechanism for Salesforce pages
+* d.Contextual actions for Salesforce UI elements
 * e.Basic integrations like Email , Selenium, TESTNG, MAVEN and page objects.
 
 The core of the framework works on top of Salesforce's UI API to achieve UI automation.  Dont know what is UI API? 
