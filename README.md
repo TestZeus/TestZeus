@@ -20,8 +20,8 @@ Here is a high level diagram for the framework. The tests can be run from maven 
 
 
 ## Pre-requisites 🔗:
-  Technical requirements : JAVA, Maven, TestNG, ChromeDriver on the local
-  Non-technical requirements : A beverage of your choice (coffee/tea) and some good music to automate the toughest of test cases. 
+  Technical requirements : JAVA, Maven, TestNG, ChromeDriver on the local. 
+ And Non-technical requirements : A beverage of your choice (coffee/tea) and some good music to automate the toughest of test cases. 
   
  ## Instructions to run🏃‍♂️:
     Option 1 - Both the UI and API test can be run as standalone TESTNG tests
@@ -67,6 +67,7 @@ Quick Option: As always, adding break points and debug as TestNG test
 Note 1: We are in no way directly or indirectly associated with Salesforce (yet). 
 
 Made with ♥ in India.
+![testzeusanimated](https://user-images.githubusercontent.com/7482112/152791284-53556ac2-ccd4-419d-a8c7-1e8036aafea8.gif)
 
-![testzeusanimated](https://user-images.githubusercontent.com/7482112/152790816-0cfec8dc-4021-4f25-96de-99ef93953ff7.gif)
+
 
