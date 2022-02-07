@@ -68,6 +68,9 @@ Quick Option: As always, adding break points and debug as TestNG test
 Under 5 minute video to show you the highlights of the framework and a demo of the execution :
 
 
+https://user-images.githubusercontent.com/7482112/152846537-db5ee79d-ce29-436f-b57f-2c4e9405b275.mp4
+
+
 
 
 ## Why is the name TestZeus?
