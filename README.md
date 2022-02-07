@@ -5,11 +5,11 @@ And solve the problem of flaky tests, while accelerating the development of auto
 Presenting (drum roll 🥁) TestZeus -> An open source automation framework built specifically for Salesforce. 
 So what ? Well, this framework has boiler plate code to get you started with test automation for your Salesforce org. 
 Just to name a few : 
-a.Advance utilities like Autolocators 🧙‍♂️ (https://github.com/TestZeus/TestZeus/blob/main/README.md#autolocator-strategy-)
-b.API integrations for REST APIs
-c.Waiting mechanism for Salesforce UI
-d.Locators for Salesforce UI
-e.Basic integrations like Email , Selenium, TESTNG, MAVEN and page objects.
+* a.Advance utilities like Autolocators 🧙‍♂️ (https://github.com/TestZeus/TestZeus/blob/main/README.md#autolocator-strategy-)
+* b.API integrations for REST APIs
+* c.Waiting mechanism for Salesforce UI
+* d.Locators for Salesforce UI
+* e.Basic integrations like Email , Selenium, TESTNG, MAVEN and page objects.
 
 ## High Level Framework diagram 🏛:
 Here is a high level diagram for the framework. The tests can be run from maven or TestNG. 
@@ -20,13 +20,13 @@ Here is a high level diagram for the framework. The tests can be run from maven 
 
 
 ## Pre-requisites 🔗:
-  Technical requirements : JAVA, Maven, TestNG, ChromeDriver on the local. 
- And Non-technical requirements : A beverage of your choice (coffee/tea) and some good music to automate the toughest of test cases. 
+  * Technical requirements : JAVA, Maven, TestNG, ChromeDriver on the local. 
+ * And Non-technical requirements : A beverage of your choice (coffee/tea) and some good music to automate the toughest of test cases. 
   
  ## Instructions to run🏃‍♂️:
-    Option 1 - Both the UI and API test can be run as standalone TESTNG tests
+   - Option 1 - Both the UI and API test can be run as standalone TESTNG tests
     OR
-    Option 2- Perform a maven build with (clean install test) goals on the pom.xml
+   - Option 2- Perform a maven build with (clean install test) goals on the pom.xml
    
  ## AutoLocator Strategy 🤖:   
 This is where the magic happens. We scrape the UI API for labels, datatypes and sections to create the actions and locators for the UI elements on the fly. 
