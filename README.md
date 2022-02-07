@@ -42,6 +42,8 @@ Here is a high level diagram for the framework. The tests can be run from maven 
     OR
    - Option 2- Perform a maven build with (clean install test) goals on the pom.xml
 
+Note: The demo test cases under src\test\java\com\AT\testscripts require credentials from config.json file for authentication and authorization, so dont forget to put in the credentials before trying to run the tests .
+
 
 
 ## Creating UI Test cases ✒:
