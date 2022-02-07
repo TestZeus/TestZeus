@@ -64,6 +64,10 @@ Wrapper methods for abstracting the webdriver internals are written in the **Pag
 
 Quick Option: As always, adding break points and debug as TestNG test
 
+## Why is the name TestZeus?
+Zeus is the God of lightning and thunder and we want this framework to be the same with Lightning platform. 
+(plus we got the domain name for a cheap price 🤗)
+
 Note 1: We are in no way directly or indirectly associated with Salesforce (yet). 
 
 Made with ♥ in India.
