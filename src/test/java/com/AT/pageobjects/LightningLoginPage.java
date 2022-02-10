@@ -72,7 +72,7 @@ public class LightningLoginPage extends SFPageBase {
 		System.out.println("account URL is" + accountappurl);
 		String cleanurl = accountappurl.replace("[\"", "").replace("\"]", "");
 		System.out.println("Navigating to App URL as : " + cleanurl);
-		openHomepage(cleanurl);
+		openHomepage(cleanurl + "?eptVisible=1");
 
 		waitForSFPagetoLoad();
 

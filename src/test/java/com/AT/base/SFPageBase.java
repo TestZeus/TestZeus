@@ -84,14 +84,14 @@ public class SFPageBase extends PageBase {
 		}
 	}
 
-	public static void uiapiHitter() {
-		// This constructor is the heart of the UI API based automation and gets the UI
+	public static void uiApiHitter(String recordID) {
+		// This method call is the heart of the UI API based automation and gets the UI
 		// API
 		// Json for further operations ♥
 		// Here 0015g00000S9lfUAAR is the record ID of an ACCOUNT, but the same API and
 		// general methods below can be used for the other sbjects.
 		uiapi_record_json = (HTTPClientWrapper
-				.runGetRequest("/ui-api/record-ui/0015g00000S9lfUAAR?formFactor=Large&modes=View,Edit")).toString();
+				.runGetRequest("/ui-api/record-ui/" + recordID + "?formFactor=Large&modes=View,Edit")).toString();
 		Reporter.log(uiapi_record_json);
 
 	}
@@ -136,16 +136,18 @@ public class SFPageBase extends PageBase {
 		});
 	}
 
-	public void uiapiscraper() throws Exception {
-		uiapiHitter();
+	public void uiApiParser(String recordid) throws Exception {
+		uiApiHitter(recordid);
 		sectionGetter();
 		labelGetter();
 		dataTypeGetter();
 	}
 
 	public void formValueFiller(String label, String targetvalue) throws Exception {
-		//This method automagically uses the label and datatypes to fill the form on the fly
-		//And reduces the pain for creation and maintenance of separate pageobjects and web elements
+		// This method automagically uses the label and datatypes to fill the form on
+		// the fly
+		// And reduces the pain for creation and maintenance of separate pageobjects and
+		// web elements
 		WebElement we;
 		String type = labelandtype.get(label);
 		switch (type) {

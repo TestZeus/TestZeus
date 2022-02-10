@@ -26,8 +26,9 @@ public class AccountCreationViaUI extends BaseTest {
 		lightningloginpage.applauncher("Account");
 		accountlistpage.clickNew();
 
-		// We fetch all the labels and datatype from UI API here
-		accountlistpage.uiapiscraper();
+		// We fetch all the labels and datatype from UI API here for a certain record id
+		String recordid = "0015g00000S9lfUAAR";
+		accountlistpage.uiApiParser(recordid);
 
 		// Form data can be passed directly on the new sObject creation screen
 		accountlistpage.formValueFiller("Account Name",
