@@ -6,10 +6,10 @@ Presenting (drum roll 🥁) TestZeus -> An open source automation framework buil
 So what ? Well, this framework has boiler plate code to get you started with test automation for your Salesforce org. 
 And just to name a few features : 
 * a.Advance utilities like Autolocators 🧙‍♂️ (https://github.com/TestZeus/TestZeus/blob/main/README.md#autolocator-strategy-)
-* b.API integrations for REST APIs
-* c.Waiting mechanism for Salesforce pages
-* d.Contextual actions for Salesforce UI elements
-* e.Basic integrations like Email , Selenium, TESTNG, MAVEN and page objects.
+* b.API integrations for REST APIs 🔌
+* c.Intelligent Waiting mechanism for Salesforce pages ⌚
+* d.Contextual actions for Salesforce UI elements🏹
+* e.Basic integrations like Email , Selenium, TESTNG, MAVEN and page objects.✔
 
 The core of the framework works on top of Salesforce's UI API to achieve UI automation.  Dont know what is UI API? 
 No worries at all , here is a resource to get you going : https://developer.salesforce.com/docs/atlas.en-us.uiapi.meta/uiapi/ui_api_get_started.htm
