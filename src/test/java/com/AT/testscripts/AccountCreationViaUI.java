@@ -33,7 +33,7 @@ public class AccountCreationViaUI extends BaseTest {
 		// Form data can be passed directly on the new sObject creation screen
 		accountlistpage.formValueFiller("Account Name",
 				"AccountCreatedOn : " + accountlistpage.getCurrentDateTimeStamp());
-		accountlistpage.formValueFiller("Upsell Opportunity", "Maybe");
+//		accountlistpage.formValueFiller("Upsell Opportunity", "Maybe");
 
 		// Or form data can be read from a json file as below
 		accountlistpage.formValueFiller("SIC Code", PageBase.readJsonFile("accountdata", "$.['SIC Code']"));

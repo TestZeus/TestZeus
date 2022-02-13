@@ -31,8 +31,7 @@ public class AccountListPage extends SFPageBase {
 		Thread.sleep(5000);
 		SFClick(newbutton);
 
-//		waitForSFPagetoLoad();
-		Thread.sleep(5000);
+		waitForSFPagetoLoad();
 
 	}
 
