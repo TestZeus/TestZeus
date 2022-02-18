@@ -88,6 +88,13 @@ Zeus is the God of lightning and thunder and we want this framework to be the sa
 - Stop writing flaky locators and cryptic xpaths for Webelements on the Salesforce UI. We  source the locator values for your scripts from the Salesforce UI API , so that you can focus more on building tests and less on maintenance
 - The world of testing for Salesforce can be fast-paced and scary. That's why we are together in this mission and need your help to spread the word, try the framework or contribute to our codebase. And we have a long road ahead of us, so lets join forces to automate Salesforce
 
+## Support ☎
+You can find a happy and helping community of Test Automation/QA folks at the below link: 
+
+https://trailhead.salesforce.com/en/trailblazer-community/groups/0F93A000000DQPdSAO?sort=LAST_MODIFIED_DATE_DESC&tab=discussion#
+
+And if you would like to technically contribute/raise an issue, then feel free to open a ticket on this Github Repo.
+
 Note : We are in no way directly or indirectly associated with Salesforce (yet). 
 
 Made with ♥ in India.
