@@ -32,6 +32,8 @@ Here is a high level diagram for the framework. The tests can be run from maven 
 
 ![TestZeusArchitecture drawio](https://user-images.githubusercontent.com/7482112/153765424-1a863503-c2ec-483c-acec-300668df227e.png)
 
+Podcast around TestZeus : https://youtu.be/iQk0cZuR-ko
+
 
 ## Pre-requisites 🔗:
   * Technical requirements : JAVA, Maven, TestNG, ChromeDriver on the local. 
@@ -76,7 +78,6 @@ Under 5 minute video to show you the highlights of the framework and a demo of t
 
 
 https://user-images.githubusercontent.com/7482112/152846537-db5ee79d-ce29-436f-b57f-2c4e9405b275.mp4
-
 
 
 
