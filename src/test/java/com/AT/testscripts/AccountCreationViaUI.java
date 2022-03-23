@@ -3,8 +3,8 @@ package com.AT.testscripts;
 import org.testng.annotations.Test;
 
 import com.AT.base.BaseTest;
-import com.AT.base.PageBase;
-import com.AT.base.SFPageBase;
+
+import testzeus.base.SFPageBase;
 
 /**
  * @author Robin
@@ -36,7 +36,8 @@ public class AccountCreationViaUI extends BaseTest {
 //		accountlistpage.formValueFiller("Upsell Opportunity", "Maybe");
 
 		// Or form data can be read from a json file as below
-		accountlistpage.formValueFiller("SIC Code", PageBase.readJsonFile("accountdata", "$.['SIC Code']"));
+		accountlistpage.formValueFiller("SIC Code",
+				testzeus.base.SFPageBase.readJsonFile("accountdata", "$.['SIC Code']"));
 
 		accountlistpage.clickSave();
 		System.out.println("Thank you :) ");
