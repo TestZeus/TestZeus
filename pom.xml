@@ -28,6 +28,11 @@
 	</properties>
 
 	<dependencies>
+	<dependency>
+  <groupId>com.testzeus</groupId>
+  <artifactId>Test_Zeus</artifactId>
+  <version>1.0.1</version>
+</dependency>
 
 		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
 		<dependency>

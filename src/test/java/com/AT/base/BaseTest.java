@@ -36,6 +36,10 @@ import com.google.gson.JsonObject;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 
+import testzeus.base.GetSFApps;
+import testzeus.base.HTTPClientWrapper;
+import testzeus.base.PageBase;
+
 /*@author: Robin Gupta
 @Date: 29 September 2021
 @Purpose: All the test classes extend this base test , so as to carry forward the abstraction for page objects , webdriver setup and TEstNG level methods
@@ -64,6 +68,26 @@ public class BaseTest implements ExcelReader, PropertyReader {
 	public static String env;
 	public static String SFUserId;
 	public static String SFPassword;
+	// Credentials for using the Connected app and accessing data via REST API
+	final String SFAPIUSERNAME_UAT = "test10zeus@gmail.com";
+
+	final String SFAPITOKEN_UAT = "yourtoken";
+
+	final String SFAPIPASSWORDSTRING_UAT = "yourpassword";
+
+	// password needs to be appended with token as per : //
+	// https://stackoverflow.com/questions/38334027/salesforce-oauth-authentication-bad-request-error
+
+	final String SFAPIPASSWORD_UAT = SFAPIPASSWORDSTRING_UAT + SFAPITOKEN_UAT;
+
+	final String SFAPILOGINURL_UAT = "https://testzeus2-dev-ed.my.salesforce.com";
+
+	final String SFAPIGRANTSERVICE = "/services/oauth2/token?grant_type=password";
+	// Client id is the consumerkey for the connected app
+	final String SFAPICLIENTID_UAT = "yourclientID";
+
+	// Client secret is the consumer secret protected static final String
+	final String SFAPICLIENTSECRET_UAT = "yourclientsecret";
 
 	@BeforeSuite(alwaysRun = true)
 	@Parameters({ "browserType" })
@@ -170,8 +194,8 @@ public class BaseTest implements ExcelReader, PropertyReader {
 		// Setting up email utils object
 //EmailUtils emu = new EmailUtils();
 		// Setting up Login for SF API requests
-		HTTPClientWrapper.SFLogin_API();
-
+		HTTPClientWrapper.SFLogin_API(SFAPILOGINURL_UAT, SFAPIGRANTSERVICE, SFAPICLIENTID_UAT, SFAPICLIENTSECRET_UAT,
+				SFAPIUSERNAME_UAT, SFAPIPASSWORD_UAT);
 		// Set up the common page objects and fetch the data to be used in most
 		// of the tests using Reflections concept
 
