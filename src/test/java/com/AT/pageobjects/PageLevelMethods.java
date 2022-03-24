@@ -10,9 +10,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.AT.base.SFPageBase;
-
-public class PageLevelMethods extends SFPageBase {
+public class PageLevelMethods extends testzeus.base.SFPageBase {
 
 	@FindBy(id = "username")
 	@CacheLookup
