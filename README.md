@@ -1,3 +1,4 @@
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.testzeus/Test_Zeus/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.testzeus/Test_Zeus)
 
 ⚡Automation for Salesforce is tough (no , seriously). And every platform release brings the lightning and thunder for UI Automation tests (Winter21 caused even our tests to shiver). So we thought, what if we could find a solution to this madness and create a simple (but robust) framework for Salesforce automation tests.
 And solve the problem of flaky tests, while accelerating the development of automation tests. 
