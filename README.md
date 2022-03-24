@@ -1,5 +1,6 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.testzeus/Test_Zeus/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.testzeus/Test_Zeus)
 
+## Hello 👋
 ⚡Automation for Salesforce is tough (no , seriously). And every platform release brings the lightning and thunder for UI Automation tests (Winter21 caused even our tests to shiver). So we thought, what if we could find a solution to this madness and create a simple (but robust) framework for Salesforce automation tests.
 And solve the problem of flaky tests, while accelerating the development of automation tests. 
 
@@ -40,21 +41,21 @@ Podcast around TestZeus : https://youtu.be/iQk0cZuR-ko
   * Technical requirements : JAVA, Maven, TestNG, ChromeDriver on the local. 
  * And Non-technical requirements : A beverage of your choice (coffee/tea) and some good music to automate the toughest of test cases. 
   
-## Instructions to run🏃‍♂️:
-   - Option 1 - Both the UI and API test can be run as standalone TESTNG tests
-    OR
-   - Option 2- Perform a maven build with (clean install test) goals on the pom.xml
+## Instructions for usage 💽:
 
-Note: The demo test cases under src\test\java\com\AT\testscripts require credentials from config.json file for authentication and authorization, so dont forget to put in the credentials before trying to run the tests .
+There are 2 ways of using TestZeus: 
 
-
-
-## Creating UI Test cases ✒:
-As easy as 1-2-3:
+<details>
+  <summary>A. Using the TestZeus framework as a starting point</summary>
+  
+  1. Clone this repository
+  2. Import into your favourite IDE as a "Maven" project
+  3. As this repository already contains Maven dependencies for TestZeus, Selenium, TestNG, Emails, APIs etc; therefore you need not add these separately
+ ## Start Creating UI Test cases ✒:
+ As easy as 1-2-3:
  1. Add the Page object class for which the flow has to be modeled
  2. The class variable for the same needs to be added to the BaseTest class for instantiation
  3. Create the actual test class with references to the web elements and corresponding actions from the page object class 
-
 
 Each test class is extended from BaseTest, thereby inheriting the wrapped methods for @BeforeClass and @BeforeSuite.
 
@@ -66,13 +67,113 @@ BaseTest class also triggers the below 2 things:
 Wrapper methods for abstracting the webdriver internals are written in the **PageBase** class.
 Methods to interact with UI API and create locators/interactions are setup in the **SFPageBase** class.
 
-  
+ **Note.1** : There are sample tests included in the location ```src/test/java/com/AT/testscripts/``` to help you get started.
+  **Note.2** : The demo test cases under ```src/test/java/com/AT/testscripts/``` require credentials from config.json file for authentication and authorization, so dont forget to put in the credentials before trying to run the tests .
+ 
+ ## To run these tests 🥈 :
+   - Option 1 - Both the UI and API test can be run as standalone TESTNG tests
+    OR
+   - Option 2- Perform a maven build with ```mvn clean install test``` goals on the pom.xml
+ 
 ## Debug tests 🐜:
   Detailed option: Run as -Dtest=SmokeTest -Dmaven.surefire.debug test
   And then: 
   Debug config->set up 5005 port and then continue debugging
 
 Quick Option: As always, adding break points and debug as TestNG test
+     
+</details>
+
+<details>
+
+ <summary>B. Using Testzeus as a dependency in your existing test automation framework</summary>
+  1. Add the Testzeus maven dependency in your pom.xml file. 
+ Latest build here: https://search.maven.org/artifact/com.testzeus/Test_Zeus
+
+ 
+  2. TestZeus will need the below to perform the requisite automated operations :
+  * A webdriver instance ```WebDriver driver = new ChromeDriver();``` to perform the UI interactions (clicks, smart waits, selects) from the SFPageBase class
+  * User and API credentials to perform CRUD operations and fetch UI API details for building the web elements on the fly. 
+ 
+ **Sample method call and Test Class :**
+ ```
+ public class AccountCreationViaUI {
+
+	@Test(priority = 1)
+	public void createAccount() throws Exception {
+		// Credentials for using the Connected app and accessing data via REST API
+		final String SFAPIUSERNAME_UAT = "gmail@rajnikanth.com";
+
+		final String SFAPITOKEN_UAT = "yourAPItoken";
+
+		final String SFAPIPASSWORDSTRING_UAT = "passwordstring";
+
+		// password needs to be appended with token as per : //
+		// https://stackoverflow.com/questions/38334027/salesforce-oauth-authentication-bad-request-error
+
+		final String SFAPIPASSWORD_UAT = SFAPIPASSWORDSTRING_UAT + SFAPITOKEN_UAT;
+
+		final String SFAPILOGINURL_UAT = "https://testzeus.my.salesforce.com";
+
+		final String SFAPIGRANTSERVICE = "/services/oauth2/token?grant_type=password";
+		// Client id is the consumerkey for the connected app
+		final String SFAPICLIENTID_UAT = "clientID";
+
+		// Client secret is the consumer secret protected static final String
+		final String SFAPICLIENTSECRET_UAT = "clientsecret";
+
+		// Setting up Login for SF API requests
+		HTTPClientWrapper.SFLogin_API(SFAPILOGINURL_UAT, SFAPIGRANTSERVICE, SFAPICLIENTID_UAT, SFAPICLIENTSECRET_UAT,
+				SFAPIUSERNAME_UAT, SFAPIPASSWORD_UAT);
+		
+		//Sample usage of BoniGarcia's webdriver manager
+		WebDriverManager.chromedriver().setup();
+
+		ChromeDriver driver = new ChromeDriver();
+		
+		//Create a new instance of the SFPageBase class
+		SFPageBase pb = new SFPageBase(driver);
+
+		// Use methods from TestZeus as below for Navigation to login page
+		pb.openHomepage("https://testzeus2-dev-ed.my.salesforce.com");
+		pb.maximize();
+
+		// Or Use the webdriver implementations: Example for Submitting user id,
+		// password and logging in
+		driver.findElement(By.id("username")).sendKeys("UIusername@gmail.com");
+		driver.findElement(By.id("password")).sendKeys("UIpassword");
+		WebElement loginbutton = driver.findElement(By.id("Login"));
+
+		pb.safeClick(loginbutton);
+		pb.appLauncher("Account");
+
+		WebElement newbutton = driver.findElement(By.xpath("//a[@title='New']"));
+
+		pb.safeClick(newbutton);
+
+		// We fetch all the labels and datatype from UI API here for a certain record
+		String recordid = "0015g00000S9lfUAAR";
+		pb.uiApiParser(recordid);
+		// Form data can be passed directly on the new sObject creation screen
+		pb.formValueFiller("Account Name", "AccountCreatedOn : " + pb.getCurrentDateTimeStamp());
+		WebElement savebutton = driver.findElement(By.xpath("//button[@name='SaveEdit']"));
+
+		pb.safeClick(savebutton);
+		HTTPClientWrapper.SFLogout_API();
+		// Dont forget to say thanks
+		System.out.println("Thank you :) ");
+		driver.close();
+		driver.quit();
+		// Setting driver to null for stopping persistent use of driver
+		// session across browsers
+		driver = null;
+
+	}
+}
+ ```
+ 
+ </details>
+
 
 ## Video Demo
 Under 5 minute video to show you the highlights of the framework and a demo of the execution :
@@ -93,7 +194,8 @@ Zeus is the God of lightning and thunder and we want this framework to be the sa
 ## Support ☎
 You can find a happy and helping community of Test Automation/QA folks at the below link: 
 
-https://trailhead.salesforce.com/en/trailblazer-community/groups/0F93A000000DQPdSAO?sort=LAST_MODIFIED_DATE_DESC&tab=discussion#
+[Test Automation Trailblazers](https://trailhead.salesforce.com/trailblazer-community/groups/0F93A000000DQPd?tab=discussion&sort=LAST_MODIFIED_DATE_DESC)
+
 
 And if you would like to technically contribute/raise an issue, then feel free to open a ticket on this Github Repo.
 
