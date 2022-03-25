@@ -167,8 +167,6 @@ Quick Option: As always, adding break points and debug as TestNG test
 	}
 }
  ```
- 
- </details>
 
 
 ## Video Demo
