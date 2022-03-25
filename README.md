@@ -45,13 +45,13 @@ Podcast around TestZeus : https://youtu.be/iQk0cZuR-ko
 
 There are 2 ways of using TestZeus: 
 
-<details>
-  <summary>A. Using the TestZeus framework as a starting point</summary>
+### A. Using the TestZeus framework as a starting point
   
   1. Clone this repository
   2. Import into your favourite IDE as a "Maven" project
   3. As this repository already contains Maven dependencies for TestZeus, Selenium, TestNG, Emails, APIs etc; therefore you need not add these separately
- ## Start Creating UI Test cases ✒:
+  
+ #### Start Creating UI Test cases ✒:
  As easy as 1-2-3:
  1. Add the Page object class for which the flow has to be modeled
  2. The class variable for the same needs to be added to the BaseTest class for instantiation
@@ -70,23 +70,19 @@ Methods to interact with UI API and create locators/interactions are setup in th
  **Note.1** : There are sample tests included in the location ```src/test/java/com/AT/testscripts/``` to help you get started.
   **Note.2** : The demo test cases under ```src/test/java/com/AT/testscripts/``` require credentials from config.json file for authentication and authorization, so dont forget to put in the credentials before trying to run the tests .
  
- ## To run these tests 🥈 :
+ #### To run these tests 🥈 :
    - Option 1 - Both the UI and API test can be run as standalone TESTNG tests
     OR
    - Option 2- Perform a maven build with ```mvn clean install test``` goals on the pom.xml
  
-## Debug tests 🐜:
+#### Debug tests 🐜:
   Detailed option: Run as -Dtest=SmokeTest -Dmaven.surefire.debug test
   And then: 
   Debug config->set up 5005 port and then continue debugging
 
 Quick Option: As always, adding break points and debug as TestNG test
      
-</details>
-
-<details>
-
- <summary>B. Using Testzeus as a dependency in your existing test automation framework</summary>
+### B. Using Testzeus as a dependency in your existing test automation framework
   1. Add the Testzeus maven dependency in your pom.xml file. 
  Latest build here: https://search.maven.org/artifact/com.testzeus/Test_Zeus
 
