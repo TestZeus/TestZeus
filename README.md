@@ -24,15 +24,14 @@ No worries at all , here is a resource to get you going : https://developer.sale
 ## AutoLocator Strategy 🤖:   
 This is where the magic happens. We parse the UI API and process the jsonresponse for labels, datatypes and sections to create the actions and locators for the UI elements on the fly. 
 Ask me how? See this now : 
-![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png)
+<img src="https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png" width="800" height="600">
 
 
 ## High Level Framework diagram 🏛:
 Here is a high level diagram for the framework. The tests can be run from maven or TestNG. 
+<img src="https://user-images.githubusercontent.com/7482112/153765424-1a863503-c2ec-483c-acec-300668df227e.png" width="800" height="600">
 
 
-
-![TestZeusArchitecture drawio](https://user-images.githubusercontent.com/7482112/153765424-1a863503-c2ec-483c-acec-300668df227e.png)
 
 Podcast around TestZeus : https://youtu.be/iQk0cZuR-ko
 
