@@ -31,9 +31,10 @@ Ask me how? See this now :
 Here is a high level diagram for the framework. The tests can be run from maven or TestNG. 
 ![TestZeusArchitecture drawio](https://user-images.githubusercontent.com/7482112/153765424-1a863503-c2ec-483c-acec-300668df227e.png)
 
+**Note** - Kindly open the above images in new tab and you can see the full image displayed correctly. 
 
-
-Podcast around TestZeus : https://youtu.be/iQk0cZuR-ko
+## Podcast around TestZeus : 
+Here's a neat podcast around test automation for Salesforce using TestZeus : https://youtu.be/iQk0cZuR-ko
 
 
 ## Pre-requisites 🔗:
