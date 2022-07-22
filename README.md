@@ -29,7 +29,9 @@ Ask me how? See this now :
 
 ## High Level Framework diagram 🏛:
 Here is a high level diagram for the framework. The tests can be run from maven or TestNG. 
-![TestZeusArchitecture drawio](https://user-images.githubusercontent.com/7482112/153765424-1a863503-c2ec-483c-acec-300668df227e.png)
+
+![TestZeusArchitectureSimple drawio (1)](https://user-images.githubusercontent.com/7482112/180376812-63564207-f255-4143-9b40-e59966c208cb.png)
+
 
 **Note** - Kindly open the above images in new tab and you can see the full image displayed correctly. 
 
