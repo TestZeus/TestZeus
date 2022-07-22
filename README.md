@@ -24,7 +24,9 @@ No worries at all , here is a resource to get you going : https://developer.sale
 ## AutoLocator Strategy 🤖:   
 This is where the magic happens. We parse the UI API and process the jsonresponse for labels, datatypes and sections to create the actions and locators for the UI elements on the fly. 
 Ask me how? See this now : 
-![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/152765014-d55d9556-91cb-4b11-a3ab-d9675a5db7f6.png)
+
+![AutoLocators drawio](https://user-images.githubusercontent.com/7482112/180414381-39b54280-1ea2-47d7-b4c2-af7ce65fb80c.png)
+
 
 
 ## High Level Framework diagram 🏛:
