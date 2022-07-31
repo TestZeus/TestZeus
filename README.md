@@ -179,6 +179,9 @@ Under 5 minute video to show you the highlights of the framework and a demo of t
 
 https://user-images.githubusercontent.com/7482112/152846537-db5ee79d-ce29-436f-b57f-2c4e9405b275.mp4
 
+## Selenium Conference 2022 :
+Link to the video recording - https://youtu.be/KLN4bHND0nM
+Link to the slides - https://docs.google.com/presentation/d/1tBkivZRPb17KTSYw1FBYoqMb_muqqNVerdRCk6cZRF4/edit?usp=sharing 
 
 
 ## Why is the name TestZeus?
