@@ -180,8 +180,8 @@ Under 5 minute video to show you the highlights of the framework and a demo of t
 https://user-images.githubusercontent.com/7482112/152846537-db5ee79d-ce29-436f-b57f-2c4e9405b275.mp4
 
 ## Selenium Conference 2022 :
-Link to the video recording - https://youtu.be/KLN4bHND0nM
-Link to the slides - https://docs.google.com/presentation/d/1tBkivZRPb17KTSYw1FBYoqMb_muqqNVerdRCk6cZRF4/edit?usp=sharing 
+Link to the [video recording](https://youtu.be/KLN4bHND0nM)
+Link to the [slides](https://docs.google.com/presentation/d/1tBkivZRPb17KTSYw1FBYoqMb_muqqNVerdRCk6cZRF4/edit?usp=sharing)
 
 
 ## Why is the name TestZeus?
@@ -199,6 +199,8 @@ You can find a happy and helping community of Test Automation/QA folks at the be
 
 
 And if you would like to technically contribute/raise an issue, then feel free to open a ticket on this Github Repo.
+
+Kindly note , that we have observed a few users mentioning about an issue with project imports and getting errors related to Testzeus base file missing from the project. This is an IDE related issue and can be easily resolved with the solution mentioned [here](https://github.com/TestZeus/TestZeus/commit/d35f1ec5c52594aab23c6e765ddb01a89a01e565#commitcomment-78946563)
 
 Note : We are in no way directly or indirectly associated with Salesforce (yet). 
 
