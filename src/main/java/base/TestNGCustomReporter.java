@@ -1,4 +1,4 @@
-package com.AT.base;
+package base;
 
 import org.testng.Reporter;
 

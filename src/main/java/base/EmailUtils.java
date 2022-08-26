@@ -1,4 +1,4 @@
-package com.AT.base;
+package base;
 
 import java.io.BufferedReader;
 import java.io.File;

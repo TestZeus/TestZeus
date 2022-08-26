@@ -1,10 +1,10 @@
-package com.AT.testscripts;
+package testscripts;
 
 import org.json.JSONObject;
 import org.testng.annotations.Test;
 
-import com.AT.base.BaseTest;
-import com.AT.base.HTTPClientWrapper;
+import base.BaseTest;
+import testzeus.base.HTTPClientWrapper;
 
 /**
  * @author Robin

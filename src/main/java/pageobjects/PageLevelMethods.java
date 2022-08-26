@@ -1,4 +1,4 @@
-package com.AT.pageobjects;
+package pageobjects;
 
 import java.util.List;
 
@@ -10,7 +10,7 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LightningLoginPage extends testzeus.base.SFPageBase {
+public class PageLevelMethods extends testzeus.base.SFPageBase {
 
 	@FindBy(id = "username")
 	@CacheLookup
@@ -27,7 +27,7 @@ public class LightningLoginPage extends testzeus.base.SFPageBase {
 	@FindBy(xpath = "")
 	private List<WebElement> sessionErrorMessage;
 
-	public LightningLoginPage(WebDriver webDriver) {
+	public PageLevelMethods(WebDriver webDriver) {
 		super(webDriver);
 		PageFactory.initElements(driver, this);// Creates instance for all web elements
 	}
@@ -40,15 +40,8 @@ public class LightningLoginPage extends testzeus.base.SFPageBase {
 	 */
 	public void login(String userid, String passwordtext) throws InterruptedException {
 
-		Thread.sleep(8000);
-
-		explicitWait(username, 40);
-
-		username.sendKeys(userid);
-		password.sendKeys(passwordtext);
-		safeClick(login_button);
-
 		Thread.sleep(5000);
+
 		try {
 
 			Alert alert = driver.switchTo().alert();
@@ -60,18 +53,13 @@ public class LightningLoginPage extends testzeus.base.SFPageBase {
 
 		}
 
-		waitForSFPagetoLoad();
+		explicitWait(username, 40);
 
-	}
+		username.sendKeys(userid);
+		password.sendKeys(passwordtext);
+		safeClick(login_button);
 
-	public void applauncher(String appname) throws InterruptedException {
-		Thread.sleep(5000);
-		String accountappurl = getURL(appname);
-		System.out.println("account URL is" + accountappurl);
-		String cleanurl = accountappurl.replace("[\"", "").replace("\"]", "");
-		System.out.println("Navigating to App URL as : " + cleanurl);
-		openHomepage(cleanurl + "?eptVisible=1");
-
+		Thread.sleep(2000);
 		waitForSFPagetoLoad();
 
 	}

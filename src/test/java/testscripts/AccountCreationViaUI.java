@@ -1,9 +1,8 @@
-package com.AT.testscripts;
+package testscripts;
 
 import org.testng.annotations.Test;
 
-import com.AT.base.BaseTest;
-
+import base.BaseTest;
 import testzeus.base.SFPageBase;
 
 /**
