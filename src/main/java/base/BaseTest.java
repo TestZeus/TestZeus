@@ -222,7 +222,6 @@ public class BaseTest implements ExcelReader, PropertyReader {
 
 				SFAPITOKEN_UAT = (String) JsonPath.read(jsonFile, "$.environments." + env + ".UAT.apitoken");
 
-				//SFAPITOKEN_UAT = "QhhZNRScVAPz9GpMkhy8jVsy";
 
 			SFAPIPASSWORDSTRING_UAT = SFPassword;
 			
@@ -233,7 +232,6 @@ public class BaseTest implements ExcelReader, PropertyReader {
 
 			SFAPILOGINURL_UAT = SFBaseURL;
 
-			//final String SFAPILOGINURL_UAT = "https://testzeus2-dev-ed.my.salesforce.com";
 
 			// Client id is the consumerkey for the connected app
 		 SFAPICLIENTID_UAT = (String) JsonPath.read(jsonFile, "$.environments." + env + ".UAT.SFAPICLIENTID_UAT");
