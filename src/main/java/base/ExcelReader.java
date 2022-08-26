@@ -1,4 +1,4 @@
-package com.AT.base;
+package base;
 
 public interface ExcelReader {
 	// Stub and placeholder methods for reference only

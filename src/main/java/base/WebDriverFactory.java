@@ -1,4 +1,4 @@
-package com.AT.base;
+package base;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,6 +25,8 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+
+@SuppressWarnings("deprecation")
 public class WebDriverFactory {
 
 	/*
@@ -59,6 +61,7 @@ public class WebDriverFactory {
 		return driver;
 	}
 
+	@SuppressWarnings("deprecation")
 	static WebDriver createInstance(URL hubUrl, String browserName) throws IOException {
 		WebDriver driver = null;
 		if (browserName.equalsIgnoreCase("firefox")) {
@@ -125,6 +128,7 @@ public class WebDriverFactory {
 		return driver;
 	}
 
+	@SuppressWarnings("unused")
 	private static DesiredCapabilities getIncognitoDesiredCapabilities() {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("-incognito");

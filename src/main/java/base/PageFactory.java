@@ -1,4 +1,4 @@
-package com.AT.base;
+package base;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

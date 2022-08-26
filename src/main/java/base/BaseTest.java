@@ -1,4 +1,4 @@
-package com.AT.base;
+package base;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -29,13 +29,13 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.AT.pageobjects.AccountListPage;
-import com.AT.pageobjects.LightningLoginPage;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 
+import pageobjects.AccountListPage;
+import pageobjects.LightningLoginPage;
 import testzeus.base.GetSFApps;
 import testzeus.base.HTTPClientWrapper;
 import testzeus.base.PageBase;
@@ -49,10 +49,10 @@ import testzeus.base.PageBase;
 public class BaseTest implements ExcelReader, PropertyReader {
 
 	public static final Logger logger = LogManager.getLogger(BaseTest.class);
+	protected static WebDriver driver;
 
 	private static final String InstalledVersionDetailPage = null;
 
-	protected static WebDriver driver;
 
 	protected static Actions action;
 	protected LightningLoginPage lightningloginpage;
@@ -68,26 +68,19 @@ public class BaseTest implements ExcelReader, PropertyReader {
 	public static String env;
 	public static String SFUserId;
 	public static String SFPassword;
-	// Credentials for using the Connected app and accessing data via REST API
-	final String SFAPIUSERNAME_UAT = "test10zeus@gmail.com";
+	public static String SFAPIPASSWORDSTRING_UAT;
+	public static String SFAPIUSERNAME_UAT ;
+	public static String SFAPITOKEN_UAT;
+	public static String SFAPIPASSWORD_UAT;
+	public static String SFAPILOGINURL_UAT;
+	public static String SFAPIGRANTSERVICE = "/services/oauth2/token?grant_type=password";
+	public static String SFAPICLIENTID_UAT;
+	public  static String SFAPICLIENTSECRET_UAT;
 
-	final String SFAPITOKEN_UAT = "yourtoken";
 
-	final String SFAPIPASSWORDSTRING_UAT = "yourpassword";
+	
 
-	// password needs to be appended with token as per : //
-	// https://stackoverflow.com/questions/38334027/salesforce-oauth-authentication-bad-request-error
-
-	final String SFAPIPASSWORD_UAT = SFAPIPASSWORDSTRING_UAT + SFAPITOKEN_UAT;
-
-	final String SFAPILOGINURL_UAT = "https://testzeus2-dev-ed.my.salesforce.com";
-
-	final String SFAPIGRANTSERVICE = "/services/oauth2/token?grant_type=password";
-	// Client id is the consumerkey for the connected app
-	final String SFAPICLIENTID_UAT = "yourclientID";
-
-	// Client secret is the consumer secret protected static final String
-	final String SFAPICLIENTSECRET_UAT = "yourclientsecret";
+	
 
 	@BeforeSuite(alwaysRun = true)
 	@Parameters({ "browserType" })
@@ -108,6 +101,100 @@ public class BaseTest implements ExcelReader, PropertyReader {
 			System.out.println("Window height: " + driver.manage().window().getSize().getHeight());
 		}
 	}
+	@BeforeTest(alwaysRun = true)
+	public void cleanTestSetup() {
+		driver.manage().deleteAllCookies();
+	}
+
+	@BeforeClass(alwaysRun = true)
+	protected void setUp() throws MessagingException {
+
+		// Setting up email utils object
+//EmailUtils emu = new EmailUtils();
+		// Setting up Login for SF API requests
+		HTTPClientWrapper.SFLogin_API(SFAPILOGINURL_UAT, SFAPIGRANTSERVICE, SFAPICLIENTID_UAT, SFAPICLIENTSECRET_UAT,
+				SFAPIUSERNAME_UAT, SFAPIPASSWORD_UAT);
+		// Set up the common page objects and fetch the data to be used in most
+		// of the tests using Reflections concept
+
+		lightningloginpage = (LightningLoginPage) pageFactory.getPageObject(LightningLoginPage.class.getName());
+		accountlistpage = (AccountListPage) pageFactory.getPageObject(AccountListPage.class.getName());
+
+		// Below is commented code as reference for reading data from properties file
+		// SFUserId = (String) getStaticData().get("SFLightning.userid");
+		// SFPassword = (String) getStaticData().get("SFLightning.password");
+
+	}
+
+	@AfterMethod(alwaysRun = true)
+	public void tearDownandCaptureScreenShot(Method method, ITestResult result) { // Method for taking screenshots on
+																					// failure of the test case
+		if (ITestResult.FAILURE == result.getStatus()) {
+			try {
+				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddhhmmss");
+				String currentdatetime = simpleDateFormat.format(new Date());
+				File source = captureScreenShot();
+				FileUtils.copyFile(source, new File(System.getProperty("user.dir")
+						+ "/target/surefire-reports/FailedScreenShots/" + result.getName() + currentdatetime + ".png"));
+				Reporter.log("Screenshot taken");
+			} catch (Exception e) {
+
+				Reporter.log("Exception while taking screenshot " + e.getMessage());
+			}
+		}
+		logger.info("*************");
+		logger.info("Ending Test  ---->" + method.getName());
+
+	}
+	
+	@AfterClass(alwaysRun = true)
+	public void deleteAllCookies() {
+		// Logging out of the Salesforce APIs
+		HTTPClientWrapper.SFLogout_API();
+
+		// Handling windows after executing each class from Suite
+		try {
+
+			String originalHandle = driver.getWindowHandle();
+
+			for (String handle : driver.getWindowHandles()) {
+				if (!handle.equals(originalHandle)) {
+					driver.switchTo().window(handle);
+					driver.close();
+				}
+			}
+
+			driver.switchTo().window(originalHandle);
+
+		} catch (Exception e) {
+
+			Reporter.log("Error while closing child windows" + e.getMessage());
+
+		}
+
+		logger.info("Clearing all browser cookies...");
+		driver.manage().deleteAllCookies();
+
+	}
+
+	@AfterSuite(alwaysRun = true)
+	public void quitWebDrivers() {
+		logger.info("terminateWebDrivers()");
+		try {
+			driver.close();
+			driver.quit();
+			// Setting driver to null for stopping persistent use of driver
+			// session across browsers
+			driver = null;
+		} catch (Exception e) {
+			// Sometime driver.quit() causes exception and not nullifying the
+			// driver obj. Which stops next successful browser launch
+			driver = null;
+			logger.error("Error quitting driver");
+			e.printStackTrace();
+		}
+	}
+
 
 	private void readConfigJsonFile() {
 		{ // Here the commonly used Test data is read from the config.json file
@@ -129,7 +216,32 @@ public class BaseTest implements ExcelReader, PropertyReader {
 				SFBaseURL = (String) JsonPath.read(jsonFile, "$.environments." + env + ".UAT.homePage");
 				SFUserId = (String) JsonPath.read(jsonFile, "$.environments." + env + ".UAT.userId");
 				SFPassword = (String) JsonPath.read(jsonFile, "$.environments." + env + ".UAT.passwd");
+				// Credentials for using the Connected app and accessing data via REST API
+				SFAPIUSERNAME_UAT = SFUserId;
+				//In the above line the API user name and UI login user name are same, but they could be different in your scenario and therefore kindly adjust as required
 
+				SFAPITOKEN_UAT = (String) JsonPath.read(jsonFile, "$.environments." + env + ".UAT.apitoken");
+
+				//SFAPITOKEN_UAT = "QhhZNRScVAPz9GpMkhy8jVsy";
+
+			SFAPIPASSWORDSTRING_UAT = SFPassword;
+			
+			// password needs to be appended with token as per : //
+			// https://stackoverflow.com/questions/38334027/salesforce-oauth-authentication-bad-request-error
+
+			SFAPIPASSWORD_UAT = SFAPIPASSWORDSTRING_UAT + SFAPITOKEN_UAT;
+
+			SFAPILOGINURL_UAT = SFBaseURL;
+
+			//final String SFAPILOGINURL_UAT = "https://testzeus2-dev-ed.my.salesforce.com";
+
+			// Client id is the consumerkey for the connected app
+		 SFAPICLIENTID_UAT = (String) JsonPath.read(jsonFile, "$.environments." + env + ".UAT.SFAPICLIENTID_UAT");
+
+			// Client secret is the consumer secret protected static final String
+			SFAPICLIENTSECRET_UAT = (String) JsonPath.read(jsonFile, "$.environments." + env + ".UAT.SFAPICLIENTSECRET_UAT");
+					
+					
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -183,104 +295,12 @@ public class BaseTest implements ExcelReader, PropertyReader {
 		}
 	}
 
-	@BeforeTest(alwaysRun = true)
-	public void cleanTestSetup() {
-		driver.manage().deleteAllCookies();
-	}
-
-	@BeforeClass(alwaysRun = true)
-	protected void setUp() throws MessagingException {
-
-		// Setting up email utils object
-//EmailUtils emu = new EmailUtils();
-		// Setting up Login for SF API requests
-		HTTPClientWrapper.SFLogin_API(SFAPILOGINURL_UAT, SFAPIGRANTSERVICE, SFAPICLIENTID_UAT, SFAPICLIENTSECRET_UAT,
-				SFAPIUSERNAME_UAT, SFAPIPASSWORD_UAT);
-		// Set up the common page objects and fetch the data to be used in most
-		// of the tests using Reflections concept
-
-		lightningloginpage = (LightningLoginPage) pageFactory.getPageObject(LightningLoginPage.class.getName());
-		accountlistpage = (AccountListPage) pageFactory.getPageObject(AccountListPage.class.getName());
-
-		// Below is commented code as reference for reading data from properties file
-		// SFUserId = (String) getStaticData().get("SFLightning.userid");
-		// SFPassword = (String) getStaticData().get("SFLightning.password");
-
-	}
-
-	@AfterMethod(alwaysRun = true)
-	public void tearDownandCaptureScreenShot(Method method, ITestResult result) { // Method for taking screenshots on
-																					// failure of the test case
-		if (ITestResult.FAILURE == result.getStatus()) {
-			try {
-				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMddhhmmss");
-				String currentdatetime = simpleDateFormat.format(new Date());
-				File source = captureScreenShot();
-				FileUtils.copyFile(source, new File(System.getProperty("user.dir")
-						+ "/target/surefire-reports/FailedScreenShots/" + result.getName() + currentdatetime + ".png"));
-				Reporter.log("Screenshot taken");
-			} catch (Exception e) {
-
-				Reporter.log("Exception while taking screenshot " + e.getMessage());
-			}
-		}
-		logger.info("*************");
-		logger.info("Ending Test  ---->" + method.getName());
-
-	}
-
+	
 	public File captureScreenShot() {
 		return new PageBase(driver).takeScreenshot();
 	}
 
-	@AfterClass(alwaysRun = true)
-	public void deleteAllCookies() {
-		// Logging out of the Salesforce APIs
-		HTTPClientWrapper.SFLogout_API();
-
-		// Handling windows after executing each class from Suite
-		try {
-
-			String originalHandle = driver.getWindowHandle();
-
-			for (String handle : driver.getWindowHandles()) {
-				if (!handle.equals(originalHandle)) {
-					driver.switchTo().window(handle);
-					driver.close();
-				}
-			}
-
-			driver.switchTo().window(originalHandle);
-
-		} catch (Exception e) {
-
-			Reporter.log("Error while closing child windows" + e.getMessage());
-
-		}
-
-		logger.info("Clearing all browser cookies...");
-		driver.manage().deleteAllCookies();
-
-	}
-
-	@AfterSuite(alwaysRun = true)
-	public void quitWebDrivers() {
-		logger.info("terminateWebDrivers()");
-		try {
-			driver.close();
-			driver.quit();
-			// Setting driver to null for stopping persistent use of driver
-			// session across browsers
-			driver = null;
-		} catch (Exception e) {
-			// Sometime driver.quit() causes exception and not nullifying the
-			// driver obj. Which stops next successful browser launch
-			driver = null;
-			logger.error("Error quitting driver");
-			e.printStackTrace();
-		}
-	}
-
+	
 	@Override
 	public Properties getStaticData() { // Method to read data from static data properties file
 		if (staticData == null) {
