@@ -38,7 +38,7 @@ Here is a high level diagram for the framework. The tests can be run from maven 
 **Note** - Kindly open the above images in new tab and you can see the full image displayed correctly. 
 
 ## Podcast around TestZeus : 
-Here's a neat podcast around test automation for Salesforce using TestZeus : https://youtu.be/iQk0cZuR-ko
+Here's a neat podcast around test automation for Salesforce using TestZeus : [Youtube Link](https://youtu.be/iQk0cZuR-ko)
 
 
 ## Pre-requisites 🔗:
@@ -71,8 +71,8 @@ BaseTest class also triggers the below 2 things:
 Wrapper methods for abstracting the webdriver internals are written in the **PageBase** class.
 Methods to interact with UI API and create locators/interactions are setup in the **SFPageBase** class.
 
- **Note.1** : There are sample tests included in the location ```src/test/java/com/AT/testscripts/``` to help you get started.
-  **Note.2** : The demo test cases under ```src/test/java/com/AT/testscripts/``` require credentials from config.json file for authentication and authorization, so dont forget to put in the credentials before trying to run the tests .
+ **Note.1** : There are sample tests included in the location ```src/test/java/testscripts/``` to help you get started.
+  **Note.2** : The demo test cases under ```src/test/java/testscripts/``` require credentials from config.json file for authentication and authorization, so dont forget to put in the credentials before trying to run the tests .
  
  #### To run these tests 🥈 :
    - Option 1 - Both the UI and API test can be run as standalone TESTNG tests
@@ -172,7 +172,6 @@ Quick Option: As always, adding break points and debug as TestNG test
 }
  ```
 
-
 ## Video Demo
 Under 5 minute video to show you the highlights of the framework and a demo of the execution :
 
@@ -211,4 +210,3 @@ Made with ♥ in India.
 ![testzeusanimated](https://user-images.githubusercontent.com/7482112/152791284-53556ac2-ccd4-419d-a8c7-1e8036aafea8.gif)
 
 
-<a href="https://www.buymeacoffee.com/robin" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="20" width="87"></a>
