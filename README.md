@@ -37,7 +37,12 @@ Here is a high level diagram for the framework. The tests can be run from maven 
 
 **Note** - Kindly open the above images in new tab and you can see the full image displayed correctly. 
 
-## Podcast around TestZeus : 
+## Test Automation Univeristy Course on Salesforce Test Automation 🧑‍🎓: 
+Dont know a lot about the Salesforce platform, or this stuff looks too complicated? Dont worry, we have you covered with the definitive course on Salesforce Test Automation : [Automating Salesforce Tests with TestZeus](https://testautomationu.applitools.com/salesforce-testzeus-tutorial/). 
+
+🤫Psst.. Its free 🤗
+
+## Podcast around TestZeus 🔊: 
 Here's a neat podcast around test automation for Salesforce using TestZeus : [Youtube Link](https://youtu.be/iQk0cZuR-ko)
 
 
@@ -200,6 +205,8 @@ You can find a happy and helping community of Test Automation/QA folks at the be
 And if you would like to technically contribute/raise an issue, then feel free to open a ticket on this Github Repo.
 
 Kindly note , that we have observed a few users mentioning about an issue with project imports and getting errors related to Testzeus base file missing from the project. This is an IDE related issue and can be easily resolved with the solution mentioned [here](https://github.com/TestZeus/TestZeus/commit/d35f1ec5c52594aab23c6e765ddb01a89a01e565#commitcomment-78946563)
+
+Another note: If you are facing MFA issues (where Salesforce asks for a temporary code sent to your email), you can bypass it by following the steps [here](https://developer.salesforce.com/forums/?id=9062I000000BmQ6QAK#:~:text=To%20bypass%20the%20two%2Dfactor,are%20using%20provided%20IP%20address)
 
 Note : We are in no way directly or indirectly associated with Salesforce (yet). 
 
