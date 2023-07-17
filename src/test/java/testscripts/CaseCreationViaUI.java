@@ -12,40 +12,34 @@ import testzeus.base.SFPageBase;
  *           prints them to console 👼
  */
 
-public class AccountCreationViaUI extends BaseTest {
+public class CaseCreationViaUI extends BaseTest {
 
 	@Test(priority = 1)
-	public void createAccount() throws Exception {
+	public void createCase() throws Exception {
 
 		// Navigation to login page
 		lightningloginpage.openHomepage(SFBaseURL);
 		// Submitting user id, password and logging in
 		lightningloginpage.login(SFUserId, SFPassword);
-		// Navigating directly to Account app
-		lightningloginpage.applauncher("Account");
+		// Navigating directly to Case list page
+		lightningloginpage.applauncher("Case");
 		objectlistpage.clickShowMoreActions();
-
 		objectlistpage.clickNew();
 
 		// We fetch all the labels and datatype from UI API here for a certain record id
-		String recordid = "0015g00001IdwmWAAR";
+		String recordid = "5005g00000iogzGAAQ";
 		objectlistpage.uiApiParser(recordid);
 
 		// Form data can be passed directly on the new sObject creation screen
-		objectlistpage.formValueFiller("Account Name",
-				"AccountCreatedOn : " + objectlistpage.getCurrentDateTimeStamp());
-//		objectlistpage.formValueFiller("Upsell Opportunity", "Maybe");
-
-		// Or form data can be read from a json file as below
-		objectlistpage.formValueFiller("SIC Code",
-				testzeus.base.SFPageBase.readJsonFile("accountdata", "$.['SIC Code']"));
+		objectlistpage.formValueFiller("Case Origin",
+				"Phone");
 
 		objectlistpage.clickSave();
 		System.out.println("Thank you :) ");
 
 	}
 
-	@Test(priority = 2, dependsOnMethods = { "createAccount" }, groups = { "smokeTest" })
+	@Test(priority = 2, dependsOnMethods = { "createCase" }, groups = { "smokeTest" })
 	public void verifyMeta() {
 		// From the same UI API data we can even verify that whether few fields are
 		// mandatory or not

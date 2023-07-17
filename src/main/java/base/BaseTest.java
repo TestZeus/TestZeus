@@ -34,7 +34,8 @@ import com.google.gson.JsonObject;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 
-import pageobjects.AccountListPage;
+import pageobjects.ObjectListPage;
+import pageobjects.AccountListPage_new_example;
 import pageobjects.LightningLoginPage;
 import testzeus.base.GetSFApps;
 import testzeus.base.HTTPClientWrapper;
@@ -56,7 +57,8 @@ public class BaseTest implements ExcelReader, PropertyReader {
 
 	protected static Actions action;
 	protected LightningLoginPage lightningloginpage;
-	protected AccountListPage accountlistpage;
+	protected ObjectListPage objectlistpage;
+	protected AccountListPage_new_example acne;
 
 	public static String SFBaseURL; // This is the base URL like https://test-ea.lightning.force.com/
 
@@ -118,7 +120,9 @@ public class BaseTest implements ExcelReader, PropertyReader {
 		// of the tests using Reflections concept
 
 		lightningloginpage = (LightningLoginPage) pageFactory.getPageObject(LightningLoginPage.class.getName());
-		accountlistpage = (AccountListPage) pageFactory.getPageObject(AccountListPage.class.getName());
+		objectlistpage = (ObjectListPage) pageFactory.getPageObject(ObjectListPage.class.getName());
+		acne = (AccountListPage_new_example) pageFactory.getPageObject(AccountListPage_new_example.class.getName());
+
 
 		// Below is commented code as reference for reading data from properties file
 		// SFUserId = (String) getStaticData().get("SFLightning.userid");
@@ -175,6 +179,7 @@ public class BaseTest implements ExcelReader, PropertyReader {
 		logger.info("Clearing all browser cookies...");
 		driver.manage().deleteAllCookies();
 
+
 	}
 
 	@AfterSuite(alwaysRun = true)
@@ -222,7 +227,6 @@ public class BaseTest implements ExcelReader, PropertyReader {
 
 				SFAPITOKEN_UAT = (String) JsonPath.read(jsonFile, "$.environments." + env + ".UAT.apitoken");
 
-				//SFAPITOKEN_UAT = "QhhZNRScVAPz9GpMkhy8jVsy";
 
 			SFAPIPASSWORDSTRING_UAT = SFPassword;
 			

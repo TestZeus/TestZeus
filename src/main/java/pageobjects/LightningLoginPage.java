@@ -67,7 +67,7 @@ public class LightningLoginPage extends testzeus.base.SFPageBase {
 	public void applauncher(String appname) throws InterruptedException {
 		Thread.sleep(5000);
 		String accountappurl = getURL(appname);
-		System.out.println("account URL is" + accountappurl);
+		System.out.println("App URL is" + accountappurl);
 		String cleanurl = accountappurl.replace("[\"", "").replace("\"]", "");
 		System.out.println("Navigating to App URL as : " + cleanurl);
 		openHomepage(cleanurl + "?eptVisible=1");

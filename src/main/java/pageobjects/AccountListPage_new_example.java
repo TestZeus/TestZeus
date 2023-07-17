@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AccountListPage extends testzeus.base.SFPageBase {
+public class AccountListPage_new_example extends testzeus.base.SFPageBase {
 
 	@FindBy(xpath = "//a[@title='New']")
 	private WebElement newbutton;
@@ -13,7 +13,7 @@ public class AccountListPage extends testzeus.base.SFPageBase {
 	@FindBy(xpath = "//button[@name='SaveEdit']")
 	private WebElement savebutton;
 
-	public AccountListPage(WebDriver webDriver) {
+	public AccountListPage_new_example(WebDriver webDriver) {
 		super(webDriver);
 		PageFactory.initElements(driver, this);// Creates instance for all web elements
 	}

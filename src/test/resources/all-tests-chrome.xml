@@ -9,6 +9,8 @@
 
 			<class name="testscripts.AccountCreationViaUI" />
 						<class name="testscripts.AccountCreationViaAPIs" />
+									<class name="testscripts.CaseCreationViaUI" />
+						
 			
 
 		</classes>
